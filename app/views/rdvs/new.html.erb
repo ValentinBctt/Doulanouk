@@ -1,93 +1,93 @@
 <%= image_tag "rdv" %>
 
 <div class="rdv">
-  <h1>Prenez rendez-vous</h1> <p>pour un accompagnement personnalisé
+  <h1>Prenez rendez-vous</h1>
+  <p>pour un accompagnement personnalisé
 
 Bienvenue ! Je suis là pour vous accompagner avec bienveillance, que ce soit pendant votre grossesse ou après l'accouchement. Remplissez le formulaire ci-dessous pour planifier notre rendez-vous et discuter de vos besoins.
 
 Au plaisir de vous rencontrer et de vous soutenir !</p>
-<div class="tel-mail">
-  <p><i class="fa-solid fa-phone"></i> 06 10 34 30 45</p>
-  <p><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</p>
-  <p><i class="fa-brands fa-instagram"></i> @anoukdoula</p>
+  <div class="tel-mail">
+    <p><i class="fa-solid fa-phone"></i> 06 10 34 30 45</p>
+    <p><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</p>
+    <p><i class="fa-brands fa-instagram"></i> @anoukdoula</p>
+  </div>
 </div>
-
-</div>
-
-
 
 <div class="form-rdv">
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
       <h1>Informations</h1>
 
-
-      <div class="mt-10 grid grid-cols-2 gap-x-6">
-        <!-- First Name Field -->
-                <!-- filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/views/rdvs/new.html.erb -->
-        <%= form_with model: @rdv, local: true, data: { turbo: false } do |form| %>
-          <div class="col-span-full">
+      <%= form_with model: @rdv, local: true, data: { turbo: false } do |form| %>
+        <div class="mt-10 grid grid-cols-2 gap-x-6">
+          <!-- Prénom dans la première colonne -->
+          <div class="col-span-1">
             <label for="first_name" class="block text-sm font-medium text-bleu2">Prénom</label>
             <div class="mt-2">
-              <%= form.text_field :first_name, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+              <%= form.text_field :first_name, required: true, placeholder:"Prénom", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
             </div>
           </div>
 
-          <div class="col-span-full">
+          <!-- Nom dans la deuxième colonne -->
+          <div class="col-span-1">
             <label for="last_name" class="block text-sm font-medium text-bleu2">Nom</label>
             <div class="mt-2">
-              <%= form.text_field :last_name, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+              <%= form.text_field :last_name, required: true, placeholder:"Nom", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
             </div>
           </div>
+        </div>
 
-          <div class="col-span-full">
-            <label for="email" class="block text-sm font-medium text-bleu2">Email</label>
+        <div class="col-span-full">
+          <label for="email" class="block text-sm font-medium text-bleu2">Email</label>
+          <div class="mt-2">
+            <%= form.email_field :email, required: true, placeholder:"abc@email.com", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-6">
+          <!-- Numéro de téléphone dans la première colonne -->
+          <div class="col-span-1">
+            <label for="phone_number" class="block text-sm font-medium text-bleu2">Téléphone</label>
             <div class="mt-2">
-              <%= form.email_field :email, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+              <%= form.text_field :phone, required: true, placeholder:"0601030404", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
             </div>
           </div>
 
-          <div class="col-span-full">
-            <label for="phone_number" class="block text-sm font-medium text-bleu2">Numéro de téléphone</label>
-            <div class="mt-2">
-              <%= form.text_field :phone, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
-            </div>
-          </div>
-
-          <div class="col-span-full">
+          <!-- Code postal dans la deuxième colonne -->
+          <div class="col-span-1">
             <label for="postal_code" class="block text-sm font-medium text-bleu2">Code postal</label>
             <div class="mt-2">
-              <%= form.text_field :postal_code, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+              <%= form.text_field :postal_code, required: true, placeholder:"78000", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
             </div>
           </div>
+        </div>
 
-          <div class="col-span-full">
-            <label for="city" class="block text-sm font-medium text-bleu2">Ville</label>
-            <div class="mt-2">
-              <%= form.text_field :city, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
-            </div>
+        <div class="col-span-full">
+          <label for="city" class="block text-sm font-medium text-bleu2">Ville</label>
+          <div class="mt-2">
+            <%= form.text_field :city, required: true, placeholder:"Versailles", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
           </div>
+        </div>
 
-          <div class="col-span-full">
-            <label for="prestation" class="block text-sm font-medium text-bleu2">Prestation</label>
-            <div class="mt-2">
-              <%= form.collection_select :prestation_id, @prestations, :id, :titre, { prompt: 'Sélectionnez une prestation' }, { required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' } %>
-            </div>
+        <div class="col-span-full">
+          <label for="prestation" class="block text-sm font-medium text-bleu2">Prestation</label>
+          <div class="mt-2">
+            <%= form.collection_select :prestation_id, @prestations, :id, :titre, { prompt: 'Sélectionnez une prestation' }, { required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' } %>
           </div>
+        </div>
 
-          <div class="col-span-full">
-            <label for="message" class="block text-sm font-medium text-bleu2">Votre Message</label>
-            <div class="mt-2">
-              <%= form.text_area :message, rows: 3, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
-            </div>
+        <div class="col-span-full">
+          <label for="message" class="block text-sm font-medium text-bleu2">Votre Message</label>
+          <div class="mt-2">
+            <%= form.text_area :message, rows: 3, required: true, placeholder:"Votre message avec une date de RDV souhaité...",class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
           </div>
+        </div>
 
-          <div class="mt-6 flex items-center justify-end gap-x-6">
-            <%= form.submit 'Prendre RDV', class: 'button-rdv' %>
-          </div>
-        <% end %>      <!-- filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/views/rdvs/new.html.erb -->
-        <!-- filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/views/rdvs/new.html.erb -->
-
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <%= form.submit 'Prendre RDV', class: 'button-rdv' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

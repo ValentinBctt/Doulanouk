@@ -141,10 +141,12 @@ p {
 }
 
 /* ANIMATION */
+/* filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/assets/stylesheets/application.css */
 
-/* BOUTON */
+/* Animation de droite à gauche avec opacité */
 
 
+/* BUTTON */
 
 .rdv-button {
   background-color: var(--bleu2);

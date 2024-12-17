@@ -16,9 +16,9 @@
 <div class="presentation">
   <h1>Qui suis-je ?</h1>
   <div class="qui-je-suis">
-    <%= image_tag "Anouk.png", class: "" %>
+    <%= image_tag "Anouk.png", class: "card-animate" %>
   </div>
-  <div class="">
+  <div class="card-animate">
     <p>Je suis Anouk, une doula passionnée,
       dédiée à accompagner les femmes pendant la grossesse,
        l'accouchement et le post-partum. Avec écoute et bienveillance,
@@ -31,7 +31,7 @@
 <div class="mes-prestas">
   <h1>Mes prestations</h1>
   <% @prestations.each do |prestation| %>
-    <div class="card-mes-prestas 2">
+    <div class="card-mes-prestas card-animate2">
       <% if prestation.image.attached? %>
         <%= image_tag prestation.image%>
       <% else %>

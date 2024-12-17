@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_16_180631) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_17_153352) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,15 +49,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_16_180631) do
   end
 
   create_table "rdvs", force: :cascade do |t|
+    t.integer "prestation_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "phone"
+    t.string "postal_code"
+    t.string "city"
+    t.string "phone"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["prestation_id"], name: "index_rdvs_on_prestation_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "rdvs", "prestations"
 end

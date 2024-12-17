@@ -46,14 +46,25 @@
 
  .label {
   margin-top: 20px;
+  border-color: var(--bleu2);
+ }
+
+ .label:focus {
+  color: var(--bleu2);
  }
 
  .button-rdv{
   margin: 10px auto;
   background-color: var(--bleu2);
   color: white;
-  border-radius: 20px;
+  border-radius: 30px;
   width: 60%;
-  height: 40px;
+  height: 50px;
   font-size: 1.5em;
+ }
+
+ #prestation-menu select{
+  width: 100%;
+  background-color: var(--beige-claire) ;
+
  }

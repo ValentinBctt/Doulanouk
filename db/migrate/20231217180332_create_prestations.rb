@@ -3,8 +3,9 @@ class CreatePrestations < ActiveRecord::Migration[7.1]
     create_table :prestations do |t|
       t.string :titre
       t.text :description
-      t.decimal :prix
+      t.string :prix
       t.string :image
+
       t.timestamps
     end
   end

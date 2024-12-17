@@ -4,7 +4,7 @@ class CreatePrestations < ActiveRecord::Migration[7.1]
       t.string :titre
       t.text :description
       t.decimal :prix
-
+      t.string :image
       t.timestamps
     end
   end

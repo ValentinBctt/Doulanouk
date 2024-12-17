@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.3.5"
 
+gem 'pg', '>= 1.1', '< 2.0'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

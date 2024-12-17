@@ -1,0 +1,167 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+/* filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/assets/stylesheets/application.css */
+/*
+ *= require tailwind
+ *= require_self
+ *= require_tree .
+*/
+
+:root {
+  --beige-foncé: #de8d58;
+  --beige-claire: #eabfa2;
+  --bleu-foncé: #2f4858;
+  --vert: #00745e;
+  --vert-pastel: #006e5e;
+  --bleu2: #4b5576;
+  --font-size: 16px;
+}
+body {
+  background-color: var(--beige-claire);
+  margin: 0;
+  font-family: Josefin Sans;
+}
+
+#mobileMenu {
+  background-color: var(--beige-foncé);
+}
+
+.logo {
+  color: var(--beige-foncé);
+}
+
+h1 {
+  font-family: "Croissant One", serif;
+  font-weight: 400;
+  font-size: 2.5em;
+}
+
+p {
+  color: var(--bleu-foncé);
+  font-size: 1.5em;
+}
+
+.consult img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-doula h1 {
+  color: var(--bleu2);
+
+  margin-bottom: 10px;
+}
+
+.card-doula {
+  background-color: var(--beige-claire);
+  width: 100%;
+  padding: 30px;
+
+  margin: 0px auto;
+}
+
+/* PRESENTATION */
+
+.presentation {
+  background-color: var(--bleu2);
+  width: 100%;
+  padding: 40px;
+  margin: 0px auto;
+  border: none;
+}
+
+.presentation h1 {
+  color: var(--beige-claire);
+
+  margin-bottom: 10px;
+}
+.presentation p {
+  margin-top: 25px;
+  color: var(--beige-claire);
+}
+
+/* PRESTA */
+
+.mes-prestas {
+  background-color: var(--vert-pastel);
+  padding: 30px;
+}
+
+.mes-prestas h1 {
+  color: var(--beige-claire);
+}
+
+.mes-prestas h2 {
+  margin-top: 15px;
+  font-size: 1.3em;
+  color: var(--beige-claire);
+}
+
+.card-mes-prestas {
+  display: flex
+;
+  /* padding: 10px 0; */
+  /* height: 175px; */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card-mes-prestas img {
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-esp {
+  position: absolute; /* Positionnement absolu par rapport à la carte */
+  bottom: 0; /* Espace de 10px par rapport au bas de la carte */
+  left: 75%; /* Centrer horizontalement */
+  transform: translateX(
+    -50%
+  ); /* Ajuster le décalage pour centrer parfaitement */
+  background-color: var(--beige-claire);
+  color: white;
+  border-radius: 30px;
+  padding: 10px 15px;
+  text-align: center;
+  width: 110px; /* Largeur fixe pour le bouton */
+}
+
+/* ANIMATION */
+
+/* BOUTON */
+
+
+
+.rdv-button {
+  background-color: var(--bleu2);
+  padding: 15px 20px;
+  position: sticky;
+  text-align: center;
+  width: 51%;
+  color: white;
+  margin: 0 auto !important;
+  border-radius: 50px;
+  bottom: 20px;
+  font-size: 22px;
+}
+
+.btn-voir-plus {
+  background-color: var(--beige-claire);
+  height: 50px;
+  width: 150px;
+  border-radius: 20px;
+}

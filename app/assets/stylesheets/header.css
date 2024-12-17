@@ -1,0 +1,61 @@
+
+:root {
+  --beige-foncé:  #de8d58;
+  --beige-claire: #eabfa2;
+  --bleu-foncé: #2f4858;
+  --vert: #00745e;
+  --vert-pastel:#006e5e;
+  --bleu2:#4b5576;
+  --font-size: 16px;
+}
+
+.logo-white{
+  color: white;
+}
+
+.bg-nav{
+  background-color: var(--beige-claire);
+}
+
+.burger{
+  color: var(--beige-foncé);
+}
+
+header a {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.nav-link {
+  margin: 150px auto;
+}
+
+.nav {
+  margin-bottom: 50px;
+}
+
+/* Position initiale du menu mobile en dehors de l'écran */
+#mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;  /* Largeur du menu */
+  height: 100vh; /* Hauteur du menu */
+  background-color: #333;  /* Couleur de fond du menu */
+  transform: translateX(100%); /* Menu initialement hors de l'écran */
+  transition: transform 0.5s ease; /* Animation de translation */
+  z-index: 1000; /* Assurer que le menu est au-dessus des autres éléments */
+}
+
+/* Classe pour afficher le menu (animation vers la gauche) */
+#mobileMenu.open {
+  transform: translateX(0); /* Menu visible à sa position normale */
+}
+
+#mobileMenu .fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

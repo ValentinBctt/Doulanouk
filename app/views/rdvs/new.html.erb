@@ -1,0 +1,119 @@
+<%= image_tag "rdv" %>
+
+<div class="rdv">
+  <h1>Prenez rendez-vous</h1> <p>pour un accompagnement personnalisé
+
+Bienvenue ! Je suis là pour vous accompagner avec bienveillance, que ce soit pendant votre grossesse ou après l'accouchement. Remplissez le formulaire ci-dessous pour planifier notre rendez-vous et discuter de vos besoins.
+
+Au plaisir de vous rencontrer et de vous soutenir !</p>
+<div class="tel-mail">
+  <p><i class="fa-solid fa-phone"></i> 06 10 34 30 45</p>
+  <p><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</p>
+  <p><i class="fa-brands fa-instagram"></i> @anoukdoula</p>
+</div>
+
+</div>
+
+
+
+<div class="form-rdv">
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
+      <h1>Informations</h1>
+
+
+      <div class="mt-10 grid grid-cols-2 gap-x-6">
+        <!-- First Name Field -->
+        <div class="flex-1">
+          <label for="first-name" class="block text-sm font-medium text-bleu2">Prénom</label>
+          <div class="mt-2">
+            <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+          </div>
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="flex-1">
+          <label for="last-name" class="block text-sm font-medium text-bleu2">Nom</label>
+          <div class="mt-2">
+            <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                  class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Email Field -->
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm font-medium text-bleu2">Email</label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" autocomplete="email"
+                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+        </div>
+      </div>
+
+        <!-- Phone Number Field and Postal Code Field -->
+        <div class="grid grid-cols-2 gap-x-6">
+          <!-- Phone Number Field -->
+          <div class="sm:col-span-1">
+            <label for="phone-number" class="block text-sm font-medium text-bleu2">Téléphone</label>
+            <div class="mt-2">
+              <input type="tel" name="phone-number" id="phone-number" autocomplete="tel"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+            </div>
+          </div>
+
+          <!-- Postal Code Field -->
+          <div class="sm:col-span-1">
+            <label for="postal-code" class="block text-sm font-medium text-bleu2">Code Postal</label>
+            <div class="mt-2">
+              <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- City Field -->
+        <div class="sm:col-span-2 sm:col-start-1">
+          <label for="city" class="block text-sm font-medium text-bleu2">Ville</label>
+          <div class="mt-2">
+            <input type="text" name="city" id="city" autocomplete="address-level2"
+                   class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+          </div>
+        </div>
+
+            <div class="">
+        <!-- Prestation Field -->
+        <div class="sm:col-span-2">
+          <label for="prestation" class="block text-sm font-medium text-bleu2">Choisissez une prestation</label>
+          <div class="mt-2">
+            <select id="prestation" name="prestation" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
+              <% @prestations.each do |prestation| %>
+                <option value="<%= prestation.id %>"><%= prestation.titre %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-span-full">
+        <label for="about" class="block text-sm font-medium text-bleu2">Votre Message</label>
+        <div class="mt-2">
+          <textarea name="about" id="about" rows="3"
+                    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"></textarea>
+        </div>
+      </div>
+
+      <!-- Submit and Cancel Buttons -->
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+
+        <button type="submit" class="button-rdv">
+          Prendre RDV
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

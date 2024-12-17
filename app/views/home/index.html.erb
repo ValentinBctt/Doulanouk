@@ -1,0 +1,53 @@
+<div class="consult">
+  <%= image_tag "consult.jpg" %>
+</div>
+
+
+<div class="card-doula">
+  <h1>Une Doula, c'est quoi ?</h1>
+  <p>Une doula est une professionnelle formée pour accompagner
+    les femmes pendant la grossesse, l'accouchement et le post-partum.
+    Son rôle est de fournir un soutien émotionnel, physique et informatif,
+    en créant un environnement de confiance et de bien-être.
+    Sans intervenir médicalement, elle aide les futures mamans à vivre leur expérience de naissance de manière
+    sereine et épanouie, en respectant leurs choix et en les soutenant dans leur parcours.</p>
+</div>
+
+<div class="presentation">
+  <h1>Qui suis-je ?</h1>
+  <div class="qui-je-suis">
+    <%= image_tag "Anouk.png", class: "" %>
+  </div>
+  <div class="">
+    <p>Je suis Anouk, une doula passionnée,
+      dédiée à accompagner les femmes pendant la grossesse,
+       l'accouchement et le post-partum. Avec écoute et bienveillance,
+       elle offre un soutien émotionnel et informatif pour garantir
+        une expérience de naissance sereine et épanouie. Son approche respectueuse
+      et personnalisée fait d'elle une alliée précieuse pour chaque future maman..</p>
+  </div>
+</div>
+
+<div class="mes-prestas">
+  <h1>Mes prestations</h1>
+  <% @prestations.each do |prestation| %>
+    <div class="card-mes-prestas 2">
+      <% if prestation.image.attached? %>
+        <%= image_tag prestation.image%>
+      <% else %>
+        <p>No image available</p>
+      <% end %>
+
+      <div class="px-6 py-4 ">
+        <h2 class="text-2xl font-semibold mb-4 "><%= prestation.titre %></h2>
+       <%= link_to "Voir plus", prestations_path(anchor: "prestation-#{prestation.id}"), class:"btn-esp" %>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="rdv-button">
+  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+</div>
+</div>

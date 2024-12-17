@@ -1,0 +1,59 @@
+:root {
+  --beige-foncé:  #de8d58;
+  --beige-claire: #eabfa2;
+  --bleu-foncé: #2f4858;
+  --vert: #00745e;
+  --vert-pastel:#006e5e;
+  --bleu2:#4b5576;
+  --font-size: 16px;
+}
+
+.text-bleu2 {
+  color: var(--bleu2);
+  margin-top: 20px;
+  font-size: 1.3em;
+}
+.form-rdv {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.form-rdv h1{
+  color: var(--bleu2);
+}
+
+.rdv h1 {
+  color: var(--beige-claire);
+}
+
+.rdv p {
+  color: var(--beige-claire);
+}
+
+.rdv {
+  background-color: var(--bleu2);
+  width: 100%;
+  padding: 30px;
+
+  margin: 0px auto;
+
+ }
+
+ .tel-mail {
+  text-align: center;
+  margin-top: 20px;
+ }
+
+ .label {
+  margin-top: 20px;
+ }
+
+ .button-rdv{
+  margin: 10px auto;
+  background-color: var(--bleu2);
+  color: white;
+  border-radius: 20px;
+  width: 60%;
+  height: 40px;
+  font-size: 1.5em;
+ }

@@ -56,8 +56,8 @@
   color: var(--bleu2);
  }
 
- .button-rdv{
-  margin: 10px auto;
+ .button-rdv {
+  margin: 0; /* Supprime le margin auto si un conteneur flex est utilisé */
   background-color: var(--bleu2);
   color: white;
   border-radius: 30px;
@@ -65,7 +65,12 @@
   padding: 10px;
   font-size: 1.2em;
   cursor: pointer;
- }
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active Flexbox */
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+  line-height: normal; /* Empêche le texte de s'étirer */
+}
 
  #prestation-menu select{
   width: 100%;

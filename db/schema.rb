@@ -42,10 +42,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_17_153352) do
   create_table "prestations", force: :cascade do |t|
     t.string "titre"
     t.text "description"
-    t.decimal "prix"
+    t.string "prix"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
   create_table "rdvs", force: :cascade do |t|

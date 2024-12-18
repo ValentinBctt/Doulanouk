@@ -103,7 +103,6 @@ p {
 }
 
 .mes-prestas h2 {
-  margin-top: 15px;
   font-size: 1.3em;
   color: var(--beige-claire);
 }
@@ -119,8 +118,8 @@ p {
 }
 
 .card-mes-prestas img {
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -174,10 +173,10 @@ p {
 
 .rdv-button {
   background-color: var(--bleu2);
-  padding: 15px 20px;
+  padding: 15px 10px;
   position: sticky;
   text-align: center;
-  width: 51%;
+  width: 45%;
   color: white;
   margin: 0 auto !important;
   border-radius: 50px;

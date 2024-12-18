@@ -8,7 +8,7 @@ local:
 
   cloudinary:
   service: Cloudinary
-  url: <%= ENV[cloudinary://459896845145127:TAaagspy6ect2YIigfpEPgZd5xs@dnojcwwos] %>
+  url: <%= ENV['cloudinary://459896845145127:TAaagspy6ect2YIigfpEPgZd5xs@dnojcwwos'] %>
 
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)

@@ -13,7 +13,7 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { host: 'https://anoukdoula-7b88db9decfb.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://anoukdoula-7b88db9decfb.herokuapp.com' }
 
   # Code is not reloaded between requests.
   config.enable_reloading = false

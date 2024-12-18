@@ -6,7 +6,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
-    config.assets.compile = false
+   
   config.assets.precompile += %w( application.css application.js )
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -41,6 +41,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :cloudinary
+
 
 
   # Mount Action Cable outside main process or domain.

@@ -9,9 +9,13 @@ Bienvenue ! Je suis là pour vous accompagner avec bienveillance, que ce soit pe
 
 Au plaisir de vous rencontrer et de vous soutenir !</p>
   <div class="tel-mail">
-    <p><i class="fa-solid fa-phone"></i> 06 10 34 30 45</p>
-    <p><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</p>
-    <p><i class="fa-brands fa-instagram"></i> @anoukdoula</p>
+    <p><a href="tel:0610343045"><i class="fa-solid fa-phone"></i> 06 10 34 30 45</a></p>
+    <p><a href="mailto:anouk.doula@gmail.com"><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</a></p>
+    <%= link_to "https://www.instagram.com/anoukdoula/", target: "_blank", rel: "noopener" do %>
+            <i class="fa-brands fa-instagram"></i> @anoukdoula
+
+            <% end %>
+
   </div>
 </div>
 
@@ -21,7 +25,7 @@ Au plaisir de vous rencontrer et de vous soutenir !</p>
       <h1>Informations</h1>
 
       <%= form_with model: @rdv, local: true, data: { turbo: false } do |form| %>
-        <div class="mt-10 grid grid-cols-2 gap-x-6">
+        <div class="mt-6 grid grid-cols-2 gap-x-6">
           <!-- Prénom dans la première colonne -->
           <div class="col-span-1">
             <label for="first_name" class="block text-sm font-medium text-bleu2">Prénom</label>

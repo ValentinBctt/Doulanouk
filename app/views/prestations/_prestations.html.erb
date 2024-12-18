@@ -1,0 +1,87 @@
+
+<% @prestations.each do |prestation| %>
+
+  <!-- Ajout de l'ID unique à chaque carte -->
+  <div class="card-presta w-full max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
+
+    <% if prestation.image.attached? %>
+      <%= image_tag prestation.image, class: 'w-full h-auto' %>
+    <% else %>
+      <p class="text-gray-600 text-center">No image available</p>
+    <% end %>
+
+    <!-- Titre de la prestation -->
+    <div class="px-6">
+      <h2 class="text-2xl font-semibold text-gray-800"><%= prestation.titre %></h2>
+    </div>
+
+    <!-- Description courte -->
+    <div class="px-6">
+      <p class="text-gray-600" id="short-description-<%= prestation.id %>">
+        <%= truncate(prestation.description, length: 100, separator: ' ') %><span id="ellipsis-<%= prestation.id %>" class="text-gray-600"></span>
+      </p>
+    </div>
+
+    <!-- Description complète et prix -->
+    <div class="px-6 hidden" id="full-description-<%= prestation.id %>">
+      <p class="text-gray-600"><%= prestation.description %></p>
+      <div class="price mt-4">
+        <p class="text-xl font-semibold text-gray-800"><%= prestation.prix %> €</p>
+      </div>
+    <div class="rdv-button">
+      <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+    </div>
+    </div>
+
+    <!-- Icônes de bascule -->
+    <div class="arrow-icon absolute bottom-4 right-4">
+      <div id="arrow-down-<%= prestation.id %>" class="arrow">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div id="arrow-up-<%= prestation.id %>" class="arrow hidden">
+        <i class="fa-solid fa-chevron-up"></i>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+<script>
+  // Fonction pour basculer l'affichage de la description et des flèches
+  function toggleDetails(prestationId) {
+    const fullDescription = document.getElementById(`full-description-${prestationId}`);
+    const shortDescription = document.getElementById(`short-description-${prestationId}`);
+    const ellipsis = document.getElementById(`ellipsis-${prestationId}`);
+    const arrowDown = document.getElementById(`arrow-down-${prestationId}`);
+    const arrowUp = document.getElementById(`arrow-up-${prestationId}`);
+
+    // Basculer l'affichage entre la description complète et courte
+    fullDescription.classList.toggle('hidden');
+    shortDescription.classList.toggle('hidden');
+
+    // Basculer les flèches
+    arrowDown.classList.toggle('hidden');
+    arrowUp.classList.toggle('hidden');
+
+    // Gérer l'affichage des points de suspension
+    if (fullDescription.classList.contains('hidden')) {
+      ellipsis.style.display = 'inline'; // Réafficher "..."
+    } else {
+      ellipsis.style.display = 'none'; // Cacher "..."
+    }
+  }
+
+  // Ajouter un événement click à chaque carte
+  document.querySelectorAll('.card-presta').forEach(card => {
+    card.addEventListener('click', function(event) {
+      // Empêcher le déclenchement du lien "Prendre RDV" si la carte est cliquée
+      if (event.target.tagName === 'A' || event.target.closest('a')) {
+        return;
+      }
+
+      const prestationId = this.getAttribute('data-id');
+      toggleDetails(prestationId);
+    });
+  });
+</script>

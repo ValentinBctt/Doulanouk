@@ -29,6 +29,9 @@
 .rdv p {
   color: var(--beige-claire);
 }
+.rdv a {
+  color: var(--beige-claire);
+}
 
 .rdv {
   background-color: var(--bleu2);
@@ -59,8 +62,9 @@
   color: white;
   border-radius: 30px;
   width: 60%;
-  height: 50px;
-  font-size: 1.5em;
+  padding: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
  }
 
  #prestation-menu select{

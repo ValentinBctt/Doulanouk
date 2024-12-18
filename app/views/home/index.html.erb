@@ -30,24 +30,8 @@
 
 <div class="mes-prestas">
   <h1>Mes prestations</h1>
-  <% @prestations.each do |prestation| %>
-    <div class="card-mes-prestas card-animate2">
-      <% if prestation.image.attached? %>
-        <%= image_tag prestation.image%>
-      <% else %>
-        <p>No image available</p>
-      <% end %>
+<%= render "prestations/prestations" %>
 
-      <div class="px-6 py-4 ">
-        <h2 class="text-2xl font-semibold mb-4 "><%= prestation.titre %></h2>
-       <%= link_to "Voir plus", prestations_path(anchor: "prestation-#{prestation.id}"), class:"btn-esp" %>
-
-      </div>
-    </div>
-  <% end %>
 </div>
 
-<div class="rdv-button">
-  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
-</div>
 </div>

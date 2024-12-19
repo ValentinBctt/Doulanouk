@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_17_180332) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_19_161444) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_17_180332) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "proposed_dates", force: :cascade do |t|
+    t.integer "rdv_id", null: false
+    t.date "day"
+    t.time "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rdv_id"], name: "index_proposed_dates_on_rdv_id"
+  end
+
   create_table "rdvs", force: :cascade do |t|
     t.integer "prestation_id", null: false
     t.string "first_name"
@@ -59,9 +68,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_17_180332) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "day"
+    t.time "time"
+    t.date "date"
+    t.time "hour"
     t.index ["prestation_id"], name: "index_rdvs_on_prestation_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "proposed_dates", "rdvs"
 end

@@ -20,6 +20,6 @@ class RdvsController < ApplicationController
   private
 
   def rdv_params
-    params.require(:rdv).permit(:first_name, :last_name, :email, :phone, :postal_code, :city, :prestation_id, :message)
+    params.require(:rdv).permit(:first_name, :last_name, :email, :phone, :postal_code, :city, :prestation_id, :message, :date, :hour)
   end
 end

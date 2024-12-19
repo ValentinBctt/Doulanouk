@@ -80,7 +80,7 @@ Au plaisir de vous rencontrer et de vous soutenir !</p>
   <div class="col-span-1">
     <label for="phone_number" class="block text-sm font-medium text-bleu2">Date</label>
     <div class="mt-2">
-      <%= form.date_field :date, required: true, placeholder: "0601030404", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+      <%= form.date_field :date, required: true, placeholder: "jj/mm/aaaa",, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
     </div>
   </div>
 
@@ -88,7 +88,7 @@ Au plaisir de vous rencontrer et de vous soutenir !</p>
   <div class="col-span-1">
     <label for="postal_code" class="block text-sm font-medium text-bleu2">Heure</label>
     <div class="mt-2">
-      <%= form.time_field :hour, required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+      <%= form.time_field :hour, required: true,placeholder: "h/m", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
     </div>
   </div>
 </div>

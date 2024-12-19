@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   resources :prestations
   resources :rdvs
+  resources :home
 end

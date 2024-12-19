@@ -57,7 +57,7 @@
  }
 
  .button-rdv {
-  margin: 0; /* Supprime le margin auto si un conteneur flex est utilisé */
+  margin: 0 auto; /* Supprime le margin auto si un conteneur flex est utilisé */
   background-color: var(--bleu2);
   color: white;
   border-radius: 30px;

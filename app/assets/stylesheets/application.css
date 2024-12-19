@@ -44,6 +44,7 @@ h1 {
   font-family: "Croissant One", serif;
   font-weight: 400;
   font-size: 2em;
+
 }
 
 p {
@@ -60,7 +61,7 @@ p {
 .card-doula h1 {
   color: var(--bleu2);
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .card-doula {
@@ -84,7 +85,7 @@ p {
 .presentation h1 {
   color: var(--beige-claire);
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .presentation p {
   margin-top: 25px;
@@ -119,7 +120,7 @@ p {
 
 .card-mes-prestas img {
   width: 150px;
-  height: 150px;
+  max-height: 150px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -175,13 +176,13 @@ p {
   background-color: var(--bleu2);
   padding: 10px 5px;
   text-align: center;
-  width: 40%;
+  width: 45%;
   color: white;
-  margin: 0 auto !important;
+  margin: 10px auto !important;
   border-radius: 50px;
   bottom: 20px;
   font-size: 17px;
-  margin-bottom: 10px;
+
 }
 
 .btn-voir-plus {

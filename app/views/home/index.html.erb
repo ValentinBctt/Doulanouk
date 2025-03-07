@@ -1,37 +1,9 @@
-<div class="consult">
-  <%= image_tag "consult.jpg" %>
+<div id="react-root">
+  <%= react_component("DoulaPresentation") %>  <!-- Cette ligne affiche ton composant React -->
 </div>
 
 
-<div class="card-doula">
-  <h1>Une Doula, c'est quoi ?</h1>
-  <p>Une doula est une professionnelle formée pour accompagner
-    les femmes pendant la grossesse, l'accouchement et le post-partum.
-    Son rôle est de fournir un soutien émotionnel, physique et informatif,
-    en créant un environnement de confiance et de bien-être.
-    Sans intervenir médicalement, elle aide les futures mamans à vivre leur expérience de naissance de manière
-    sereine et épanouie, en respectant leurs choix et en les soutenant dans leur parcours.</p>
-</div>
+<div class="rdv-button">
 
-<div class="presentation">
-  <h1>Qui suis-je ?</h1>
-  <div class="qui-je-suis">
-    <%= image_tag "Anouk.png", class: "card-animate" %>
-  </div>
-  <div class="card-animate">
-    <p>Je suis Anouk, une doula passionnée,
-      dédiée à accompagner les femmes pendant la grossesse,
-       l'accouchement et le post-partum. Avec écoute et bienveillance,
-       elle offre un soutien émotionnel et informatif pour garantir
-        une expérience de naissance sereine et épanouie. Son approche respectueuse
-      et personnalisée fait d'elle une alliée précieuse pour chaque future maman..</p>
-  </div>
-</div>
-
-<div class="mes-prestas">
-  <h1>Mes prestations</h1>
-<%= render "prestations/prestations" %>
-
-</div>
-
+<%= link_to 'Mon offre', prestations_path %>
 </div>

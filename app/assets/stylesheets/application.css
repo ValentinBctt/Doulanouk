@@ -17,9 +17,42 @@
  *= require_tree .
 */
 
+@font-face {
+  font-family: 'Thasadith-Regular';
+  src: url('/assets/Thasadith-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Thasadith-Bold';
+  src: url('/assets/Thasadith-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+h1 {
+  font-family: 'Thasadith-Bold', serif !important; /* Added !important to ensure specificity */
+  font-weight: 400;
+  font-size: 2em;
+  color: var(--marron);
+}
+h2 {
+  font-family: 'Thasadith-Bold', serif !important; /* Added !important to ensure specificity */
+  font-weight: 400;
+  font-size: 1.5em;
+  color: var(--marron);
+}
+
+
+
 :root {
   --beige-foncé: #de8d58;
-  --beige-claire: #eabfa2;
+  --marron: #9b7661;
+  --blanc: #e9e5da;
+  --beige-claire:#ebcfba;
   --bleu-foncé: #2f4858;
   --vert: #00745e;
   --vert-pastel: #006e5e;
@@ -27,29 +60,32 @@
   --font-size: 16px;
 }
 body {
-  background-color: var(--beige-claire);
+  background-color: var(--blanc);
   margin: 0;
-  font-family: Josefin Sans;
+
+
 }
 
-#mobileMenu {
-  background-color: var(--beige-foncé);
-}
+
 
 .logo {
   color: var(--beige-foncé);
 }
 
-h1 {
-  font-family: "Croissant One", serif;
-  font-weight: 400;
-  font-size: 2em;
 
-}
 
 p {
-  color: var(--bleu-foncé);
-  font-size: 1.2em;
+  color: var(--marron);
+  font-size: 16px; /* Taille de texte pour les paragraphes */
+  line-height: 1.6; /* Espacement des lignes pour une meilleure lisibilité */
+  font-family: 'Thasadith-Regular', serif !important;
+  font-weight: 600; /* Plus grasse mais pas bold */
+  max-width: 90%;
+}
+
+ul {
+  list-style-type: disc; /* Assure-toi que les puces sont bien visibles */
+  padding-left: 20px; /* Ajoute de l'espace à gauche pour les puces */
 }
 
 .consult img {
@@ -59,13 +95,13 @@ p {
 }
 
 .card-doula h1 {
-  color: var(--bleu2);
 
-  margin-bottom: 20px;
+
+
 }
 
 .card-doula {
-  background-color: var(--beige-claire);
+
   width: 100%;
   padding: 30px;
 
@@ -75,38 +111,34 @@ p {
 /* PRESENTATION */
 
 .presentation {
-  background-color: var(--bleu2);
+
   width: 100%;
-  padding: 40px;
+  padding: 0px 40px;
   margin: 0px auto;
   border: none;
 }
 
 .presentation h1 {
-  color: var(--beige-claire);
 
-  margin-bottom: 20px;
+
+
 }
 .presentation p {
   margin-top: 25px;
-  color: var(--beige-claire);
+
 }
 
+img.card-animate  {
+  margin: 1rem auto;
+  border-radius: 5px;
+}
 /* PRESTA */
 
 .mes-prestas {
-  background-color: var(--vert-pastel);
+
   padding: 30px;
 }
 
-.mes-prestas h1 {
-  color: var(--beige-claire);
-}
-
-.mes-prestas h2 {
-  font-size: 1.3em;
-  color: var(--beige-claire);
-}
 
 .card-mes-prestas {
   display: flex
@@ -132,7 +164,7 @@ p {
   transform: translateX(
     -50%
   ); /* Ajuster le décalage pour centrer parfaitement */
-  background-color: var(--beige-claire);
+  background-color: var(--blanc);
   color: white;
   border-radius: 30px;
   padding: 10px 15px;
@@ -164,6 +196,19 @@ p {
 
 }
 
+.presentation p {
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: 0; /* initialement caché */
+  opacity: 0; /* initialement transparent */
+}
+
+.presentation p.visible {
+  max-height: 1000px; /* une valeur suffisamment grande pour révéler le contenu */
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
 /* ANIMATION */
 /* filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/assets/stylesheets/application.css */
 
@@ -173,21 +218,25 @@ p {
 /* BUTTON */
 
 .rdv-button {
-  background-color: var(--bleu2);
+  background-color: var(--marron);
   padding: 10px 5px;
   text-align: center;
-  width: 45%;
+  width: 60%;
   color: white;
-  margin: 10px auto !important;
+  margin: 2rem auto !important;
   border-radius: 50px;
   bottom: 20px;
-  font-size: 17px;
+  font-size: 1rem;
 
 }
 
 .btn-voir-plus {
-  background-color: var(--beige-claire);
+  background-color: var(--blanc);
   height: 50px;
   width: 150px;
   border-radius: 20px;
+}
+
+.fleche {
+  margin-left: 1rem;
 }

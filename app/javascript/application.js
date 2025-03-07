@@ -1,9 +1,15 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+import React from "react";
+import ReactDOM from "react-dom";
+import DoulaPresentation from "./components/DoulaPresentation";
 
-document.addEventListener("turbo:load", () => {
-  // Vérifie si une ancre est présente dans l'URL
+document.addEventListener("DOMContentLoaded", () => {
+  // Première fonctionnalité : monter le composant React
+  const reactRoot = document.getElementById("react-root");
+  if (reactRoot) {
+    ReactDOM.render(React.createElement(DoulaPresentation), reactRoot);
+  }
+
+  // Deuxième fonctionnalité : gestion des ancres
   const hash = window.location.hash;
   if (hash) {
     const element = document.querySelector(hash);

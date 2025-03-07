@@ -1,11 +1,20 @@
 <div class="presta-title">
-  <h1>Mes Prestations</h1>
+<h1>Mon Offre</h1>
+<p>
+Tous mes services sont modulables, nous pouvons en discuter ensemble et vous choisirez la formule qui vous convient le mieux.
+</p>
+
+</br>
+<p><strong>1er rendez-vous téléphonique ou visio de découverte offert.</strong></p>
 </div>
+
+
+
 
 <% @prestations.each do |prestation| %>
 
   <!-- Ajout de l'ID unique à chaque carte -->
-  <div class="card-presta w-full max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
+  <div class="card-presta w-4/5 max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
 
     <% if prestation.image.attached? %>
       <%= image_tag prestation.image, class: 'w-full h-auto' %>
@@ -15,23 +24,32 @@
 
     <!-- Titre de la prestation -->
     <div class="px-6">
-      <h2 class="text-2xl font-semibold text-gray-800"><%= prestation.titre %></h2>
+      <h2><%= prestation.titre %></h2>
     </div>
 
-    <!-- Description courte -->
-    <div class="px-6">
-      <p class="text-gray-600" id="short-description-<%= prestation.id %>">
-        <%= truncate(prestation.description, length: 100, separator: ' ') %><span id="ellipsis-<%= prestation.id %>" class="text-gray-600"></span>
-      </p>
-    </div>
+<div class="px-6">
+  <p  id="short-description-<%= prestation.id %>">
+    <!-- Suppression des balises HTML et troncature du texte -->
+    <%= truncate(strip_tags(prestation.description), length: 200, separator: ' ') %>
+    <span id="ellipsis-<%= prestation.id %>" ></span>
+  </p>
+</div>
 
-    <!-- Description complète et prix -->
-    <div class="px-6 hidden" id="full-description-<%= prestation.id %>">
-      <p class="text-gray-600"><%= prestation.description %></p>
-      <div class="price mt-4">
-        <p class="text-xl font-semibold text-gray-800"><%= prestation.prix %> €</p>
-      </div>
-    </div>
+<!-- Description complète et prix (initialement cachée) -->
+<div class="px-6 hidden" id="full-description-<%= prestation.id %>">
+  <!-- Suppression des balises HTML pour la description complète -->
+  <p ><%= simple_format(strip_tags(prestation.description)) %></p>
+  <div class="price mt-4">
+    <p class="text-xl font-semibold text-gray-800"><%= prestation.prix %> €</p>
+  </div>
+<!-- Bouton RDV -->
+<div class="rdv-button">
+  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+</div>
+</div>
+
+
+
 
     <!-- Icônes de bascule -->
     <div class="arrow-icon absolute bottom-4 right-4">
@@ -45,10 +63,10 @@
   </div>
 <% end %>
 
-
 <div class="rdv-button">
   <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
 </div>
+
 
 <script>
   // Fonction pour basculer l'affichage de la description et des flèches

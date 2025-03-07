@@ -38,6 +38,8 @@ h1 {
   font-weight: 400;
   font-size: 2em;
   color: var(--marron);
+  text-align: center;
+  margin: 1rem auto;
 }
 h2 {
   font-family: 'Thasadith-Bold', serif !important; /* Added !important to ensure specificity */
@@ -85,12 +87,12 @@ p {
 
 ul {
   list-style-type: disc; /* Assure-toi que les puces sont bien visibles */
-  padding-left: 20px; /* Ajoute de l'espace à gauche pour les puces */
+
 }
 
 .consult img {
   width: 100%;
-  height: auto;
+  height: 20rem;
   object-fit: cover;
 }
 

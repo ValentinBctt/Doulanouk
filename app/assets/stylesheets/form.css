@@ -28,10 +28,14 @@
   margin-bottom: 0.5rem;
 }
 
+.rdv h1 {
+  margin: 1rem auto;
+  text-align: center;
+}
 .rdv {
 
   width: 100%;
-  padding: 30px 30px 0px 30px;
+
 
   margin: 0px auto;
 
@@ -42,8 +46,9 @@
   margin-top: 20px;
  }
 
- .tel-mail a {
+ .tel-mail li {
   margin-bottom: 1rem;
+  list-style: none;
 
  }
 

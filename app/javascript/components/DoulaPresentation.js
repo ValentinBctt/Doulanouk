@@ -4,7 +4,7 @@ import React from "react";
 
 const DoulaPresentation = () => {
   return React.createElement("div", { className: "consult" },
-    React.createElement("img", { src: "/assets/consult.jpg", alt: "Consult", className: "" })
+    React.createElement("img", { src: "/assets/CKFDpxwy.jpg", alt: "Consult", className: "" })
   );
 };
 
@@ -37,9 +37,12 @@ const QuiSuisJe = () => {
   };
 
   // Contenu du texte dans <ul> au lieu de <p> pour garder la même structure
-  const ulElement = React.createElement(
+  const ulElement =
+
+  React.createElement(
     "ul",
     null,
+    React.createElement("img", { src: "/assets/GXvybSYd.jpg", alt: "Consult", className: "card-animate" }),
     React.createElement("li", null, "Je suis Anouk, accompagnante périnatale ou bien Doula."),
     React.createElement("li", null, "Je viens initialement d’autres horizons puisque j’ai d’abord exercé dans les Ressources Humaines."),
     React.createElement("li", null, "J’ai souhaité évoluer vers un autre métier d’accompagnement, plus créatif et plus à l’écoute des souhaits de chacun."),

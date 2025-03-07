@@ -3,26 +3,22 @@
 
 <div class="rdv">
   <h1>Prenez rendez-vous</h1>
-  <p>pour un accompagnement personnalisé
 
-Bienvenue ! Je suis là pour vous accompagner avec bienveillance, que ce soit pendant votre grossesse ou après l'accouchement. Remplissez le formulaire ci-dessous pour planifier notre rendez-vous et discuter de vos besoins.
-
-Au plaisir de vous rencontrer et de vous soutenir !</p>
-  <div class="tel-mail">
-    <p><a href="tel:0610343045"><i class="fa-solid fa-phone"></i> 06 10 34 30 45</a></p>
-    <p><a href="mailto:anouk.doula@gmail.com"><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</a></p>
-    <%= link_to "https://www.instagram.com/anoukdoula/", target: "_blank", rel: "noopener" do %>
-            <i class="fa-brands fa-instagram"></i> @anoukdoula
-
-            <% end %>
-
-  </div>
+<div class="tel-mail">
+  <ul>
+    <li><a href="tel:0610343045"><i class="fa-solid fa-phone"></i> 06 10 34 30 45</a></li>
+    <li><a href="mailto:anouk.doula@gmail.com"><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</a></li>
+    <li><%= link_to "https://www.instagram.com/anoukdoula/", target: "_blank", rel: "noopener" do %>
+      <i class="fa-brands fa-instagram"></i> @anoukdoula
+    <% end %></li>
+  </ul>
 </div>
+
 
 <div class="form-rdv">
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
-      <h1>Informations</h1>
+      <h1>Ou remplissez ce formulaire</h1>
 
       <%= form_with model: @rdv, local: true, data: { turbo: false } do |form| %>
         <div class="mt-6 grid grid-cols-2 gap-x-6">
@@ -80,7 +76,7 @@ Au plaisir de vous rencontrer et de vous soutenir !</p>
   <div class="col-span-1">
     <label for="phone_number" class="block text-sm font-medium text-bleu2">Date</label>
     <div class="mt-2">
-      <%= form.date_field :date, required: true, placeholder: "jj/mm/aaaa",, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+<%= form.date_field :date, required: true, placeholder: "jj/mm/aaaa", class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
     </div>
   </div>
 
@@ -103,7 +99,7 @@ Au plaisir de vous rencontrer et de vous soutenir !</p>
         <div class="col-span-full">
           <label for="message" class="block text-sm font-medium text-bleu2">Votre Message</label>
           <div class="mt-2">
-            <%= form.text_area :message, rows: 3, required: true, placeholder:"Votre message avec une date de RDV souhaité...",class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
+            <%= form.text_area :message, rows: 3, required: true, placeholder:"Raison de votre demande de rdv ...",class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' %>
           </div>
         </div>
 

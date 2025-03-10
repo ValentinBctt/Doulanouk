@@ -202,12 +202,13 @@ img.card-animate  {
 
 .message{
   margin: 30px auto;
-  border: solid 2px white;
+  border: solid 2px var(--marron);
   border-radius: 20px;
   width: 95%;
   padding: 30px;
 
 }
+
 .thank-you-message{
   display: flex;
   text-align: center;
@@ -218,8 +219,12 @@ img.card-animate  {
   text-align: center;
   margin-top: 10px;
   font-size: 24px;
-  color: white;
+  color: var(--marron);
 
+}
+
+.message p {
+  max-width: 100%!important;
 }
 
 .presentation p {
@@ -277,4 +282,55 @@ img.card-animate  {
 
 .fleche {
   margin-left: 1rem;
+}
+
+
+
+/* BLOG */
+
+.container-blog {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.all-articles {
+  display: flex;
+
+  margin: 0 auto;
+  margin: 15px;
+  border-bottom: 1px solid var(--marron);
+  border-color: var(--marron);
+}
+
+.all-articles li {
+  list-style-type: none;
+}
+
+.all-articles img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.title-date-article {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.form-article {
+  width: 90%;
+
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.article-image-show img{
+  border-radius: 5px;
+  margin: 1rem auto;
+
 }

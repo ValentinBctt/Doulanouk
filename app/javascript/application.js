@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import DoulaPresentation from "./components/DoulaPresentation";
 
+
 document.addEventListener("DOMContentLoaded", () => {
   // Première fonctionnalité : monter le composant React
   const reactRoot = document.getElementById("react-root");
@@ -24,3 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+import "trix"
+import "@rails/actiontext"

@@ -17,3 +17,5 @@ pin "controllers", to: "controllers.js"
 pin "framer-motion", to: "https://cdn.skypack.dev/framer-motion"
 pin "react-intersection-observer", to: "https://cdn.skypack.dev/react-intersection-observer"
 
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"

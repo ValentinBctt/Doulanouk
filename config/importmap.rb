@@ -14,3 +14,6 @@ pin "react-dom", to: "https://cdn.skypack.dev/react-dom"
 pin_all_from "app/javascript/components", under: "components"
 pin "application", preload: true
 pin "controllers", to: "controllers.js"
+pin "framer-motion", to: "https://cdn.skypack.dev/framer-motion"
+pin "react-intersection-observer", to: "https://cdn.skypack.dev/react-intersection-observer"
+

@@ -1,4 +1,4 @@
-<div class="presta-title">
+<div class="presta-title fade-in-up">
 <h1>Mon Offre</h1>
 <p>
 Tous mes services sont modulables, nous pouvons en discuter ensemble et vous choisirez la formule qui vous convient le mieux.
@@ -14,7 +14,7 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 <% @prestations.each do |prestation| %>
 
   <!-- Ajout de l'ID unique à chaque carte -->
-  <div class="card-presta w-4/5 max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
+  <div class="card-presta  w-4/5 max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
 
     <% if prestation.image.attached? %>
       <%= image_tag prestation.image, class: 'w-full h-auto' %>

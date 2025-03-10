@@ -2,19 +2,18 @@
 
 import React from "react";
 
+
+
 const DoulaPresentation = () => {
-  return React.createElement("div", { className: "consult" },
+  return React.createElement("div", { className: "consult" },  // Ajout de la classe fade-in-up ici
     React.createElement("img", { src: "/assets/CKFDpxwy.jpg", alt: "Consult", className: "" })
   );
 };
 
 const DoulaInfo = () => {
-  return React.createElement("div", { className: "card-doula" },
-    React.createElement("h1", null, "Une Doula, c'est quoi ?"),
-
-    React.createElement("p", null,
-
-
+  return React.createElement("div", { className: "card-doula fade-in-up" },  // Ajout de la classe fade-in-up ici
+    React.createElement("h1", { className: "fade-in-up" }, "Une Doula, c'est quoi ?"),  // Ajout de la classe fade-in-up ici
+    React.createElement("p", { className: "fade-in-up" }, // Ajout de la classe fade-in-up ici
       React.createElement("br"),
       "Aujourd’hui, une Doula est une professionnelle formée dont le but reste d’être au service de la femme mais également du co-parent pendant l’ensemble des périodes qui entourent la natalité (pré-natal, accouchement, post-partum).",
       React.createElement("br"),
@@ -45,8 +44,11 @@ const QuiSuisJe = () => {
     React.createElement("img", { src: "/assets/GXvybSYd.jpg", alt: "Consult", className: "card-animate" }),
     React.createElement("li", null, "Je suis Anouk, accompagnante périnatale ou bien Doula."),
     React.createElement("li", null, "Je viens initialement d’autres horizons puisque j’ai d’abord exercé dans les Ressources Humaines."),
+    React.createElement("br"),
     React.createElement("li", null, "J’ai souhaité évoluer vers un autre métier d’accompagnement, plus créatif et plus à l’écoute des souhaits de chacun."),
+    React.createElement("br"),
     React.createElement("li", null, "Ayant toujours eu un attrait pour la maternité, ses étapes, ses épreuves, ses joies, ses questionnements, le métier de Doula a été une évidence pour moi."),
+    React.createElement("br"),
     React.createElement("li", null, "Mon rôle est d’être une alliée dans cette expérience et un soutien dans le choix. Je vous aide à être à l’écoute de vos questionnements et de vos besoins afin que vous puissiez au mieux les respecter.")
   );
 
@@ -60,7 +62,7 @@ const QuiSuisJe = () => {
   // Élément cliquable pour basculer la visibilité
   const h1Element = React.createElement(
     "h2",
-    { className: "card-animate", onClick: toggleVisibility },
+    { className: "card-animate fade-in-up", onClick: toggleVisibility },
     "Qui suis-je ?",
     // La flèche disparaît lorsque le texte est visible
     React.createElement("i", {
@@ -89,7 +91,7 @@ const CeQueJeFais = () => {
 
   const ulElement = React.createElement(
     "ul",
-    null,
+    { style: { listStyleType: "disc", paddingLeft: "20px" } },
     React.createElement("li", null, "Je vous écoute dans la neutralité."),
     React.createElement("li", null, "J’accueille votre histoire, vos ressentis, vos questions, vos doutes, vos envies."),
     React.createElement("li", null, "Je vous aide à identifier vos besoins et à les mettre en œuvre."),
@@ -98,9 +100,8 @@ const CeQueJeFais = () => {
     React.createElement("li", null, "Je vous soutiens et vous donne confiance en vous."),
     React.createElement("li", null, "Je vous indique lorsqu’il y a des sujets hors de mon champ de compétences."),
     React.createElement("li", null, "Je peux vous accompagner dans certaines démarches et à certains rendez-vous."),
-    React.createElement("li", null, "Je peux vous aider dans votre organisation/logistique (aider à préparer la maison pour l’arrivée de votre bébé, aider à préparer/organiser sa chambre, vous aider sur les tâches ménagères en post-partum…).")
+    React.createElement("li", null, "Je peux vous aider dans votre organisation/logistique.")
   );
-
   // Ajouter la classe 'visible' à l'élément <p> selon l'état de visibilité
   const pElement = React.createElement(
     "p",
@@ -110,7 +111,7 @@ const CeQueJeFais = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { onClick: toggleVisibility },
+    { className: "card-animate fade-in-up", onClick: toggleVisibility },
     "Concrètement, qu’est-ce que je fais ? ",
     React.createElement("i", {
       className: isVisible ? "" : "fleche fa-solid fa-chevron-down"
@@ -143,7 +144,7 @@ const EtVous = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { onClick: toggleVisibility },
+    { className: "card-animate fade-in-up", onClick: toggleVisibility },
     "Et vous ?",
     React.createElement("i", {
       className: isVisible ? "" : "fleche fa-solid fa-chevron-down"
@@ -168,7 +169,7 @@ const MonChamp = () => {
 
   const ulElement = React.createElement(
     "ul",
-    null,
+    { style: { listStyleType: "disc", paddingLeft: "20px" } },
     React.createElement("li", null, "Je vous écoute dans la neutralité."),
     React.createElement("li", null, "J’accueille votre histoire, vos ressentis, vos questions, vos doutes, vos envies."),
     React.createElement("li", null, "Je vous aide à identifier vos besoins et à les mettre en œuvre."),
@@ -194,7 +195,7 @@ const MonChamp = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { onClick: toggleVisibility },
+    { className: "card-animate fade-in-up", onClick: toggleVisibility },
     "Mon champ d'accompagnement",
     React.createElement("i", {
       className: isVisible ? "" : "fleche fa-solid fa-chevron-down"
@@ -233,7 +234,7 @@ const MaLocalisation = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { onClick: toggleVisibility },
+    { className: "card-animate fade-in-up", onClick: toggleVisibility },
     "Ma localisation",
     React.createElement("i", {
       className: isVisible ? "" : "fleche fa-solid fa-chevron-down"

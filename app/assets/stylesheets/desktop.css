@@ -1,0 +1,88 @@
+/* Styles pour desktop */
+.image-rdv-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+   .consult img {
+    height: 80vh;
+  }
+
+  .card-doula {
+    width: 80%;
+  }
+
+  .presentation {
+    margin-left: 20%;
+    width: 70%;
+  }
+
+  .presentation img {
+    height: 15rem;
+  }
+
+  .rdv-button {
+    width: 20%;
+  }
+
+  .image-rdv {
+    display: none;
+  }
+
+  .image-rdv-desktop {
+    display: block;
+    width: 90%;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .presta-title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-presta {
+    width: 80% !important;
+    display: flex;
+    align-items: stretch; /* Étire l'image pour qu'elle prenne toute la hauteur */
+    gap: 1rem; /* Espacement entre l'image et le texte */
+    padding-bottom: 0px !important;
+    height: auto;
+  }
+
+  .img-presta {
+    width: 30% !important;
+    height: auto !important;
+    flex: 1 1 auto; /* Permet à l'image de s'étirer pour remplir l'espace disponible */
+    object-fit: cover;
+    object-position: center; /* Center the image */
+  }
+
+  .image-rdv-desktop img {
+    border-radius: 10px;
+  }
+
+  .tel-mail {
+    width: 40%;
+    margin-left: 5%;
+  }
+
+  .form-rdv {
+    width: 40% !important;
+  }
+
+  .rdv {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .rdv-button {
+    width: 30% !important;
+  }
+}

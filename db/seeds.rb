@@ -16,7 +16,7 @@ prestations = [
                   <p>3 rendez-vous à positionner avant l’accouchement & 3 rendez-vous à positionner après l’accouchement </p>
                   ",
     prix: 387,
-    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522732/Doulanouk/fr2bapbiowe8ovo6htnt.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522733/Doulanouk/erzoraosrj9kpm8jgmyg.png"
   },
   {
     titre: 'Pack “Baby loading” - 6 rdv',

@@ -13,21 +13,26 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
 <% @prestations.each do |prestation| %>
 
+
+
   <!-- Ajout de l'ID unique à chaque carte -->
-  <div class="card-presta  w-4/5 max-w-lg rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
+  <div class="card-presta  w-4/5  rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
 
     <% if prestation.image.attached? %>
-      <%= image_tag prestation.image, class: 'w-full h-auto' %>
+      <%= image_tag prestation.image, class: 'img-presta w-full object-cover ' %>
     <% else %>
       <p class="text-gray-600 text-center">No image available</p>
     <% end %>
 
+
+<div class="text-presta">
     <!-- Titre de la prestation -->
     <div class="px-6">
       <h2><%= prestation.titre %></h2>
     </div>
 
 <div class="px-6">
+
   <p  id="short-description-<%= prestation.id %>">
     <!-- Suppression des balises HTML et troncature du texte -->
     <%= truncate(strip_tags(prestation.description), length: 200, separator: ' ') %>
@@ -42,6 +47,8 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
   <div class="price mt-4">
     <p class="text-xl font-semibold text-gray-800"><%= prestation.prix %> €</p>
   </div>
+
+
 <!-- Bouton RDV -->
 <div class="rdv-button">
   <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
@@ -61,8 +68,10 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
       </div>
     </div>
   </div>
+  </div>
 <% end %>
 
+</div>
 <div class="rdv-button">
   <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
 </div>
@@ -70,39 +79,74 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
 <script>
   // Fonction pour basculer l'affichage de la description et des flèches
+document.addEventListener("DOMContentLoaded", function () {
   function toggleDetails(prestationId) {
+    if (window.innerWidth >= 1024) return; // Ne fonctionne qu'en mode mobile
+
     const fullDescription = document.getElementById(`full-description-${prestationId}`);
     const shortDescription = document.getElementById(`short-description-${prestationId}`);
     const ellipsis = document.getElementById(`ellipsis-${prestationId}`);
     const arrowDown = document.getElementById(`arrow-down-${prestationId}`);
     const arrowUp = document.getElementById(`arrow-up-${prestationId}`);
 
-    // Basculer l'affichage entre la description complète et courte
-    fullDescription.classList.toggle('hidden');
-    shortDescription.classList.toggle('hidden');
+    if (!fullDescription || !shortDescription || !ellipsis || !arrowDown || !arrowUp) {
+      console.warn(`Élément(s) manquant(s) pour prestation ID: ${prestationId}`);
+      return;
+    }
 
-    // Basculer les flèches
-    arrowDown.classList.toggle('hidden');
-    arrowUp.classList.toggle('hidden');
+    fullDescription.classList.toggle("hidden");
+    shortDescription.classList.toggle("hidden");
+    arrowDown.classList.toggle("hidden");
+    arrowUp.classList.toggle("hidden");
+    ellipsis.style.display = fullDescription.classList.contains("hidden") ? "inline" : "none";
+  }
 
-    // Gérer l'affichage des points de suspension
-    if (fullDescription.classList.contains('hidden')) {
-      ellipsis.style.display = 'inline'; // Réafficher "..."
+  function updateVisibility() {
+    document.querySelectorAll(".card-presta").forEach(card => {
+      const prestationId = card.dataset.id;
+      const fullDescription = document.getElementById(`full-description-${prestationId}`);
+      const shortDescription = document.getElementById(`short-description-${prestationId}`);
+      const arrowDown = document.getElementById(`arrow-down-${prestationId}`);
+      const arrowUp = document.getElementById(`arrow-up-${prestationId}`);
+
+      if (!fullDescription || !shortDescription) return;
+
+      if (window.innerWidth >= 1024) {
+        fullDescription.classList.remove("hidden"); // Toujours affiché sur desktop
+        shortDescription.classList.add("hidden"); // Caché sur desktop
+        if (arrowDown) arrowDown.classList.add("hidden");
+        if (arrowUp) arrowUp.classList.add("hidden");
+      } else {
+        fullDescription.classList.add("hidden"); // Caché par défaut sur mobile
+        shortDescription.classList.remove("hidden"); // Affiché sur mobile
+        if (arrowDown) arrowDown.classList.remove("hidden");
+      }
+    });
+  }
+
+  function attachEventListeners() {
+    if (window.innerWidth < 1024) {
+      document.querySelectorAll(".card-presta").forEach(card => {
+        card.addEventListener("click", function (event) {
+          if (event.target.closest("a")) return; // Ignore le clic sur un lien
+          const prestationId = this.dataset.id;
+          if (prestationId) toggleDetails(prestationId);
+        });
+      });
     } else {
-      ellipsis.style.display = 'none'; // Cacher "..."
+      document.querySelectorAll(".card-presta").forEach(card => {
+        card.replaceWith(card.cloneNode(true)); // Supprime les événements en recréant les éléments
+      });
     }
   }
 
-  // Ajouter un événement click à chaque carte
-  document.querySelectorAll('.card-presta').forEach(card => {
-    card.addEventListener('click', function(event) {
-      // Empêcher le déclenchement du lien "Prendre RDV" si la carte est cliquée
-      if (event.target.tagName === 'A' || event.target.closest('a')) {
-        return;
-      }
+  updateVisibility(); // Applique la bonne visibilité au chargement
+  attachEventListeners();
 
-      const prestationId = this.getAttribute('data-id');
-      toggleDetails(prestationId);
-    });
+  window.addEventListener("resize", () => {
+    updateVisibility();
+    attachEventListeners();
   });
+});
+
 </script>

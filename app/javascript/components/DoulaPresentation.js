@@ -6,7 +6,7 @@ import React from "react";
 
 const DoulaPresentation = () => {
   return React.createElement("div", { className: "consult" },  // Ajout de la classe fade-in-up ici
-    React.createElement("img", { src: "/assets/CKFDpxwy.jpg", alt: "Consult", className: "" })
+    React.createElement("img", { src: "/assets/Anouk.png", alt: "Consult", className: "img-home" })
   );
 };
 

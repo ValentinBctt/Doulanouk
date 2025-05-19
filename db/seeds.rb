@@ -1,6 +1,8 @@
 require 'open-uri'
 
 Prestation.destroy_all
+Soin.destroy_all
+Accompagnement.destroy_all
 
 prestations = [
   {
@@ -30,10 +32,7 @@ prestations = [
   },
   {
     titre: 'Pack "Mois d\'or & +"',
-    description: "<p>8 rendez-vous à positionner à la suite de votre accouchement (vous choisissez la récurrence), afin de vous accompagner lors de votre retour à la maison, votre adaptation à cette nouvelle vie et instaurer avec vous un climat de bien-être pour essayer de vous faire vivre un “mois d’or”.</p>
-                  <p>Je peux être là pour vous soutenir lors de la reprise du travail de votre conjoint.e et vous aider avec la logistique de la maison par exemple. Et nous pouvons aussi seulement prendre le temps de parler de cette nouvelle vie, ce que vous traversez, parler de votre accouchement et des interrogations que vous avez.</p>
-                  <p><strong>1 soin offert</strong></p>
-                  <p><em>*Si vous souhaitez adapter ce pack en ajoutant des rendez-vous à la fin de votre accompagnement, nous pourrons adapter le tarif.</em></p>",
+    description: '<p>8 rendez-vous à positionner à la suite de votre accouchement (vous choisissez la récurrence), afin de vous accompagner lors de votre retour à la maison, votre adaptation à cette nouvelle vie et instaurer avec vous un climat de bien-être pour essayer de vous faire vivre un “mois d’or”.</p>',
     prix: 544,
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522734/Doulanouk/p0y4jkk2dqse0rmduqvp.jpg"
   }
@@ -53,4 +52,112 @@ prestations.each do |data|
   )
 end
 
+
 puts "Prestations de doula créées avec succès !"
+
+soins = [
+  {
+    titre: '💆Massage post-natal ',
+    description: "<p>Pour qui, pour quoi ?
+Chaque post-partum est différent, il peut être doux ou bien plus abrupt. C’est une période chargée en émotions et adaptations.
+Tu vis certainement un chamboulement, un changement parce que le post-partum c’est un renouveau, une découverte.
+Félicite ton corps et ton esprit pour ce que tu viens de vivre et ce que tu es en train d’accomplir.
+Pour accompagner ce moment, fais-toi offrir ou offre-toi (tu le mérites !) un moment d’apaisement.
+Ce soin vient t’apporter une bulle, un instant suspendu de bien-être et relaxation. Ce massage peut te permettre par exemple de :
+Soulager les tensions musculaires
+Améliorer le sommeil
+Aider à rééquilibrer les hormones
+
+Comment ?
+Le soin comprend :
+
+Massage et détente du dos
+Réflexologie palmaire et massage des bras
+Bercements rebozo 1 zone
+
+Si ton bébé est avec nous, pas de souci on peut adapter le soin : allaitement, bébé à proximité etc.
+N’hésite pas à m’en parler en amont pour qu’on rende ce moment adapté à tes besoins.
+Ce soin est aussi adapté pour toute personne traversant une étape, un passage difficile et qui souhaiterait bénéficier d’un moment de douceur.
+</p>",
+    prix: "<p> 45 minutes : 55€</p>
+          <p> 1h : 70€</p>",
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522732/Doulanouk/soin1.jpg"
+  },
+
+  {
+    titre: '🌺 Soin de Bien-être  –  Rebozo',
+    description: "<p>Pour qui, pour quoi ?
+Ce soin d’environ 1h est une invitation à revenir à soi, à ralentir, à se déposer.
+Le rebozo est un tissu traditionnel mexicain, tissé à la main, utilisé depuis des générations pour soutenir, envelopper et célébrer les femmes à différentes étapes de leur vie.
+Il est particulièrement apprécié et adapté :
+- aux jeunes mamans, pour marquer une pause dans l’intensité du post-partum.
+Mais aussi :
+
+ – aux femmes en transition, qui traversent un changement, un deuil, une transformation intérieure
+
+ – à toute femme qui ressent le besoin d’un soin profondément enveloppant et symbolique
+
+
+Comment ?
+À l’aide de 6 à 7 rebozos, j’effectue d’abord différents bercements sur chaque zone du corps et je finis par un resserrage de ces zones  : tête, épaules, ventre, bassin, jambes, pieds…
+Chaque zone est invitée à se détendre, à se relâcher… puis à se rassembler.
+</p>",
+    prix: "70 €",
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522732/Doulanouk/soin1.jpg"
+  }
+
+
+]
+
+soins.each do |soin|
+  Soin.create!(soin)
+end
+
+accompagnements = [
+  {
+    titre: '✨ Atelier Découverte – Portage Physiologique',
+    description: "<p>Pour qui ? Futures mamans, jeunes parents, en solo, en duo etc.
+Quand ? Dès la grossesse ou après la naissance.
+Durée : 1h30 à 2h
+
+Contenu :
+Présentation des différents moyens de portage (jersey, tissé, meï-taï sling)
+Démonstration des règles de sécurité et de la physiologie du portage
+Avantages et inconvénients
+Essai pratique sur poupon lesté ou avec votre bébé
+Conseils personnalisés selon vos besoins et envies
+À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.
+</p>",
+prix: 65,
+image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522732/Doulanouk/soin1.jpg",
+  },
+
+  {
+    titre: "🌱 Atelier Accompagnement – Ajustement du Portage",
+    description: "<p>Pour qui ? Parents ayant déjà un moyen de portage et rencontrant des difficultés (inconfort, mauvaise position, bébé qui grandit, etc.).
+Quand ? Après la naissance, à tout moment selon vos besoins.
+Durée : 1h à 1h30
+
+Contenu :
+Analyse de votre pratique actuelle
+
+
+Ajustement du portage en fonction de votre morphologie et de celle de votre bébé
+
+
+Apprentissage de nouveaux nouages, positions si besoin (ventrale, dorsale, hanche)
+
+
+Présentation d’autres types de portage si besoin.
+À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.
+</p>",
+prix: 65,
+image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1734522732/Doulanouk/soin1.jpg",
+  },
+
+]
+
+accompagnements.each do |accompagnement|
+  Accompagnement.create!(accompagnement)
+end
+puts "Soins et accompagnements créés avec succès !"

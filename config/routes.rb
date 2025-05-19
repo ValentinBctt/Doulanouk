@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   resources :rdvs
   resources :home
   resources :articles
+
+  resources :soins, only: [:index, :show]
+  resources :accompagnements, only: [:index]
+
 end

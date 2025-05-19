@@ -76,6 +76,32 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
   <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
 </div>
 
+<h1>Mes soins</h1>
+<div class="soins-list">
+  <% @soins.each do |soin| %>
+    <div class="soin-card">
+      <h2><%= soin.titre %></h2>
+      <%= image_tag soin.image_url, alt: soin.titre, width: 300 %>
+      <div><%= soin.description.html_safe %></div>
+      <div><%= soin.prix.html_safe %></div>
+      <%= link_to "Voir plus", soin_path(soin) %>
+    </div>
+  <% end %>
+</div>
+
+<h1>Mes accompagnements</h1>
+
+<div class="accompagnements-list">
+  <% @accompagnements.each do |accompagnement| %>
+    <div class="accompagnement-card">
+      <h2><%= accompagnement.titre %></h2>
+      <%= image_tag accompagnement.image_url, alt: accompagnement.titre, width: 300 %>
+      <div><%= raw accompagnement.description %></div>
+      <p><strong>Prix :</strong> <%= number_to_currency(accompagnement.prix, unit: "€") %></p>
+    </div>
+  <% end %>
+</div>
+
 
 <script>
   // Fonction pour basculer l'affichage de la description et des flèches

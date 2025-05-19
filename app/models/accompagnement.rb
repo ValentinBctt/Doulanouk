@@ -1,0 +1,2 @@
+class Accompagnement < ApplicationRecord
+end

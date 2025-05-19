@@ -3,6 +3,11 @@ class PrestationsController < ApplicationController
 
   def index
     @prestations = Prestation.all
+
+      @soins = Soin.all
+      @accompagnements = Accompagnement.all
+
+
   end
 
   def show

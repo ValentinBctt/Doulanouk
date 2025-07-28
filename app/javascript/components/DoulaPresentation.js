@@ -18,7 +18,7 @@ const useIntersectionObserver = () => {
       },
       {
         threshold: 0.1, // Déclenche quand 10% de l'élément est visible
-        rootMargin: '0px 0px -60px 0px' // Déclenche un peu avant que l'élément soit complètement visible
+        rootMargin: '0px 0px -50px 0px' // Déclenche un peu avant que l'élément soit complètement visible
       }
     );
 

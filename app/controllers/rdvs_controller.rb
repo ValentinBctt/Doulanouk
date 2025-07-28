@@ -1,8 +1,9 @@
-# filepath: /home/valentinbctt/code/ValentinBctt/Doulanouk/app/controllers/rdvs_controller.rb
 class RdvsController < ApplicationController
   def new
     @rdv = Rdv.new
     @prestations = Prestation.all
+    @soins = Soin.all
+    @accompagnements = Accompagnement.all
   end
 
   def create
@@ -12,6 +13,8 @@ class RdvsController < ApplicationController
       redirect_to @rdv, notice: 'Votre RDV a été pris avec succès.'
     else
       @prestations = Prestation.all
+      @soins = Soin.all
+      @accompagnements = Accompagnement.all
       render :new,
       notice: 'Votre RDV n\'a pas pu être pris.'
     end

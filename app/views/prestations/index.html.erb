@@ -16,7 +16,10 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
 
   <!-- Ajout de l'ID unique à chaque carte -->
-  <div class="card-presta  w-4/5  rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative" id="prestation-<%= prestation.id %>" data-id="<%= prestation.id %>">
+  <div class="card-presta  w-4/5  rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative"
+       id="prestation-<%= prestation.id %>"
+       data-type="prestation"
+       data-id="<%= prestation.id %>">
 
     <% if prestation.image.attached? %>
       <%= image_tag prestation.image, class: 'img-presta w-full object-cover ' %>
@@ -33,15 +36,15 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
 <div class="px-6">
 
-  <p  id="short-description-<%= prestation.id %>">
+  <p id="short-description-prestation-<%= prestation.id %>">
     <!-- Suppression des balises HTML et troncature du texte -->
     <%= truncate(strip_tags(prestation.description), length: 200, separator: ' ') %>
-    <span id="ellipsis-<%= prestation.id %>" ></span>
+    <span id="ellipsis-prestation-<%= prestation.id %>"></span>
   </p>
 </div>
 
 <!-- Description complète et prix (initialement cachée) -->
-<div class="px-6 hidden" id="full-description-<%= prestation.id %>">
+<div class="px-6 hidden" id="full-description-prestation-<%= prestation.id %>">
   <!-- Suppression des balises HTML pour la description complète -->
   <p ><%= simple_format(strip_tags(prestation.description)) %></p>
   <div class="price mt-4">
@@ -60,10 +63,10 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
     <!-- Icônes de bascule -->
     <div class="arrow-icon absolute bottom-4 right-4">
-      <div id="arrow-down-<%= prestation.id %>" class="arrow">
+      <div id="arrow-down-prestation-<%= prestation.id %>" class="arrow">
         <i class="fa-solid fa-chevron-down"></i>
       </div>
-      <div id="arrow-up-<%= prestation.id %>" class="arrow hidden">
+      <div id="arrow-up-prestation-<%= prestation.id %>" class="arrow hidden">
         <i class="fa-solid fa-chevron-up"></i>
       </div>
     </div>
@@ -77,102 +80,171 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 </div>
 
 <h1>Mes soins</h1>
-<div class="soins-list">
-  <% @soins.each do |soin| %>
-    <div class="soin-card">
-      <h2><%= soin.titre %></h2>
-      <%= image_tag soin.image_url, alt: soin.titre, width: 300 %>
-      <div><%= soin.description.html_safe %></div>
-      <div><%= soin.prix.html_safe %></div>
-      <%= link_to "Voir plus", soin_path(soin) %>
+<% @soins.each do |soin| %>
+  <!-- Ajout de l'ID unique à chaque carte soin -->
+  <div class="card-presta w-4/5 rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative"
+       id="soin-<%= soin.id %>"
+       data-type="soin"
+       data-id="<%= soin.id %>">
+    <% if soin.image_url.present? %>
+      <%= image_tag soin.image_url, alt: soin.titre, class: 'img-presta w-full object-cover' %>
+    <% else %>
+      <p class="text-gray-600 text-center">No image available</p>
+    <% end %>
+    <div class="text-presta">
+      <!-- Titre du soin -->
+      <div class="px-6">
+        <h2><%= soin.titre %></h2>
+      </div>
+      <div class="px-6">
+        <p id="short-description-soin-<%= soin.id %>">
+          <!-- Suppression des balises HTML et troncature du texte -->
+          <%= truncate(strip_tags(soin.description), length: 200, separator: ' ') %>
+          <span id="ellipsis-soin-<%= soin.id %>"></span>
+        </p>
+      </div>
+      <!-- Description complète et prix (initialement cachée) -->
+      <div class="px-6 hidden" id="full-description-soin-<%= soin.id %>">
+        <!-- Suppression des balises HTML pour la description complète -->
+        <p><%= simple_format(strip_tags(soin.description)) %></p>
+        <div class="price mt-4">
+          <p class="text-xl font-semibold text-gray-800"><%= strip_tags(soin.prix) %></p>
+        </div>
+        <!-- Bouton Voir plus -->
+        <div class="rdv-button">
+          <%= link_to "Voir plus", soin_path(soin), class: 'rdv-button' %>
+        </div>
+      </div>
+      <!-- Icônes de bascule -->
+      <div class="arrow-icon absolute bottom-4 right-4">
+        <div id="arrow-down-soin-<%= soin.id %>" class="arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div id="arrow-up-soin-<%= soin.id %>" class="arrow hidden">
+          <i class="fa-solid fa-chevron-up"></i>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <h1>Mes accompagnements</h1>
 
 <div class="accompagnements-list">
   <% @accompagnements.each do |accompagnement| %>
-    <div class="accompagnement-card">
-      <h2><%= accompagnement.titre %></h2>
-      <%= image_tag accompagnement.image_url, alt: accompagnement.titre, width: 300 %>
-      <div><%= raw accompagnement.description %></div>
-      <p><strong>Prix :</strong> <%= number_to_currency(accompagnement.prix, unit: "€") %></p>
+    <!-- Ajout de l'ID unique à chaque carte accompagnement -->
+    <div class="card-presta w-4/5 rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative"
+         id="accompagnement-<%= accompagnement.id %>"
+         data-type="accompagnement"
+         data-id="<%= accompagnement.id %>">
+      <% if accompagnement.image_url.present? %>
+        <%= image_tag accompagnement.image_url, alt: accompagnement.titre, class: 'img-presta w-full object-cover' %>
+      <% else %>
+        <p class="text-gray-600 text-center">No image available</p>
+      <% end %>
+      <div class="text-presta">
+        <!-- Titre de l'accompagnement -->
+        <div class="px-6">
+          <h2><%= accompagnement.titre %></h2>
+        </div>
+        <div class="px-6">
+          <p id="short-description-accompagnement-<%= accompagnement.id %>">
+            <!-- Suppression des balises HTML et troncature du texte -->
+            <%= truncate(strip_tags(accompagnement.description), length: 200, separator: ' ') %>
+            <span id="ellipsis-accompagnement-<%= accompagnement.id %>"></span>
+          </p>
+        </div>
+        <!-- Description complète et prix (initialement cachée) -->
+        <div class="px-6 hidden" id="full-description-accompagnement-<%= accompagnement.id %>">
+          <!-- Suppression des balises HTML pour la description complète -->
+          <p><%= simple_format(strip_tags(accompagnement.description)) %></p>
+          <div class="price mt-4">
+            <p class="text-xl font-semibold text-gray-800"><%= number_to_currency(accompagnement.prix, unit: "€") %></p>
+          </div>
+          <!-- Bouton RDV -->
+          <div class="rdv-button">
+            <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+          </div>
+        </div>
+        <!-- Icônes de bascule -->
+        <div class="arrow-icon absolute bottom-4 right-4">
+          <div id="arrow-down-accompagnement-<%= accompagnement.id %>" class="arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div id="arrow-up-accompagnement-<%= accompagnement.id %>" class="arrow hidden">
+            <i class="fa-solid fa-chevron-up"></i>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
-</div>
-
 
 <script>
-  // Fonction pour basculer l'affichage de la description et des flèches
-document.addEventListener("DOMContentLoaded", function () {
-  function toggleDetails(prestationId) {
-    if (window.innerWidth >= 1024) return; // Ne fonctionne qu'en mode mobile
+  document.addEventListener("DOMContentLoaded", function () {
+    function toggleDetails(type, id) {
+      if (window.innerWidth >= 1024) return; // Ne fonctionne qu'en mode desktop
 
-    const fullDescription = document.getElementById(`full-description-${prestationId}`);
-    const shortDescription = document.getElementById(`short-description-${prestationId}`);
-    const ellipsis = document.getElementById(`ellipsis-${prestationId}`);
-    const arrowDown = document.getElementById(`arrow-down-${prestationId}`);
-    const arrowUp = document.getElementById(`arrow-up-${prestationId}`);
+      const fullDescription = document.getElementById(`full-description-${type}-${id}`);
+      const shortDescription = document.getElementById(`short-description-${type}-${id}`);
+      const ellipsis = document.getElementById(`ellipsis-${type}-${id}`);
+      const arrowDown = document.getElementById(`arrow-down-${type}-${id}`);
+      const arrowUp = document.getElementById(`arrow-up-${type}-${id}`);
 
-    if (!fullDescription || !shortDescription || !ellipsis || !arrowDown || !arrowUp) {
-      console.warn(`Élément(s) manquant(s) pour prestation ID: ${prestationId}`);
-      return;
+      if (!fullDescription || !shortDescription || !ellipsis || !arrowDown || !arrowUp) {
+        console.warn(`Élément(s) manquant(s) pour ${type} ID: ${id}`);
+        return;
+      }
+
+      fullDescription.classList.toggle("hidden");
+      shortDescription.classList.toggle("hidden");
+      arrowDown.classList.toggle("hidden");
+      arrowUp.classList.toggle("hidden");
+      ellipsis.style.display = fullDescription.classList.contains("hidden") ? "inline" : "none";
     }
 
-    fullDescription.classList.toggle("hidden");
-    shortDescription.classList.toggle("hidden");
-    arrowDown.classList.toggle("hidden");
-    arrowUp.classList.toggle("hidden");
-    ellipsis.style.display = fullDescription.classList.contains("hidden") ? "inline" : "none";
-  }
+    function updateVisibility() {
+      document.querySelectorAll(".card-presta").forEach(card => {
+        const type = card.dataset.type;
+        const id = card.dataset.id;
+        const fullDescription = document.getElementById(`full-description-${type}-${id}`);
+        const shortDescription = document.getElementById(`short-description-${type}-${id}`);
+        const arrowDown = document.getElementById(`arrow-down-${type}-${id}`);
+        const arrowUp = document.getElementById(`arrow-up-${type}-${id}`);
 
-  function updateVisibility() {
-    document.querySelectorAll(".card-presta").forEach(card => {
-      const prestationId = card.dataset.id;
-      const fullDescription = document.getElementById(`full-description-${prestationId}`);
-      const shortDescription = document.getElementById(`short-description-${prestationId}`);
-      const arrowDown = document.getElementById(`arrow-down-${prestationId}`);
-      const arrowUp = document.getElementById(`arrow-up-${prestationId}`);
+        if (!fullDescription || !shortDescription) return;
 
-      if (!fullDescription || !shortDescription) return;
+        if (window.innerWidth >= 1024) {
+          fullDescription.classList.remove("hidden");
+          shortDescription.classList.add("hidden");
+          if (arrowDown) arrowDown.classList.add("hidden");
+          if (arrowUp) arrowUp.classList.add("hidden");
+        } else {
+          fullDescription.classList.add("hidden");
+          shortDescription.classList.remove("hidden");
+          if (arrowDown) arrowDown.classList.remove("hidden");
+          if (arrowUp) arrowUp.classList.add("hidden");
+        }
+      });
+    }
 
-      if (window.innerWidth >= 1024) {
-        fullDescription.classList.remove("hidden"); // Toujours affiché sur desktop
-        shortDescription.classList.add("hidden"); // Caché sur desktop
-        if (arrowDown) arrowDown.classList.add("hidden");
-        if (arrowUp) arrowUp.classList.add("hidden");
-      } else {
-        fullDescription.classList.add("hidden"); // Caché par défaut sur mobile
-        shortDescription.classList.remove("hidden"); // Affiché sur mobile
-        if (arrowDown) arrowDown.classList.remove("hidden");
-      }
-    });
-  }
-
-  function attachEventListeners() {
-    if (window.innerWidth < 1024) {
+    function attachEventListeners() {
       document.querySelectorAll(".card-presta").forEach(card => {
         card.addEventListener("click", function (event) {
-          if (event.target.closest("a")) return; // Ignore le clic sur un lien
-          const prestationId = this.dataset.id;
-          if (prestationId) toggleDetails(prestationId);
+          if (window.innerWidth >= 1024) return;
+          if (event.target.closest("a")) return; // Ignore clics sur liens
+          const type = this.dataset.type;
+          const id = this.dataset.id;
+          if (type && id) toggleDetails(type, id);
         });
       });
-    } else {
-      document.querySelectorAll(".card-presta").forEach(card => {
-        card.replaceWith(card.cloneNode(true)); // Supprime les événements en recréant les éléments
-      });
     }
-  }
 
-  updateVisibility(); // Applique la bonne visibilité au chargement
-  attachEventListeners();
-
-  window.addEventListener("resize", () => {
     updateVisibility();
     attachEventListeners();
-  });
-});
 
+    window.addEventListener("resize", () => {
+      updateVisibility();
+      attachEventListeners();
+    });
+  });
 </script>

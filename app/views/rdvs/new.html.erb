@@ -13,8 +13,8 @@
 </div>
 
   <ul>
-    <li><a href="tel:0610343045"><i class="fa-solid fa-phone"></i> 06 10 34 30 45</a></li>
-    <li><a href="mailto:anouk.doula@gmail.com"><i class="fa-solid fa-envelope"></i> anouk.doula@gmail.com</a></li>
+    <li><a href="tel:0610343045"><i class="fa-solid fa-phone"></i> 06 14 46 87 90</a></li>
+    <li><a href="mailto:anoudoula@outlook.fr "><i class="fa-solid fa-envelope"></i> anoudoula@outlook.fr </a></li>
     <li><%= link_to "https://www.instagram.com/anoukdoula/", target: "_blank", rel: "noopener" do %>
       <i class="fa-brands fa-instagram"></i> @anoukdoula
     <% end %></li>
@@ -96,12 +96,22 @@
   </div>
 </div>
 
-        <div class="col-span-full">
-          <label for="prestation" class="block text-sm font-medium text-bleu2">Prestation</label>
-          <div class="mt-2">
-            <%= form.collection_select :prestation_id, @prestations, :id, :titre, { prompt: 'Sélectionnez une prestation' }, { required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' } %>
-          </div>
-        </div>
+       <div class="col-span-full">
+  <label for="prestation" class="block text-sm font-medium text-bleu2">Prestation</label>
+  <div class="mt-2">
+    <% options = [['--- Prestations ---', '']] +
+                  @prestations.map { |p| [p.titre, "prestation_#{p.id}"] } +
+                  [['--- Soins ---', '']] +
+                  @soins.map { |s| [s.titre, "soin_#{s.id}"] } +
+                  [['--- Accompagnements ---', '']] +
+                  @accompagnements.map { |a| [a.titre, "accompagnement_#{a.id}"] } %>
+    <%= form.select :prestation_id,
+        options_for_select(options),
+        { prompt: 'Sélectionnez une option' },
+        { required: true, class: 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-800 sm:text-sm' } %>
+  </div>
+</div>
+
 
         <div class="col-span-full">
           <label for="message" class="block text-sm font-medium text-bleu2">Votre Message</label>

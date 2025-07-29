@@ -5,18 +5,26 @@ Prestation.destroy_all
 Soin.destroy_all
 Accompagnement.destroy_all
 
-# Helper pour attacher une image
+# Helper pour attacher une image locale ou distante
 def attach_image(record, image_path_string)
-  image_path = Rails.root.join(image_path_string)
-
-  if File.exist?(image_path)
+  if image_path_string.start_with?("http")
+    file = URI.open(image_path_string)
     record.image.attach(
-      io: File.open(image_path),
-      filename: File.basename(image_path),
+      io: file,
+      filename: File.basename(URI.parse(image_path_string).path),
       content_type: 'image/jpeg'
     )
   else
-    puts "⚠️ Image introuvable : #{image_path}"
+    image_path = Rails.root.join(image_path_string)
+    if File.exist?(image_path)
+      record.image.attach(
+        io: File.open(image_path),
+        filename: File.basename(image_path),
+        content_type: 'image/jpeg'
+      )
+    else
+      puts "⚠️ Image introuvable : #{image_path}"
+    end
   end
   sleep(0.2)
 end
@@ -28,13 +36,13 @@ prestations = [
     titre: 'A la carte',
     description: "<p>1 rendez-vous d’1h30 : Cela vous permet d’adapter votre accompagnement, nous pouvons nous voir seulement 1 fois ou plus, c’est en fonction de vos besoins. Et cela à toutes les étapes qui entourent votre maternité/parentalité.</p>",
     prix: 68,
-    image_url: "app/assets/images/A_la_carte.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793649/A_la_carte_pqpoe3.jpg"
   },
   {
     titre: 'Pack “Un peu de tout” - 6 rdv',
     description: "<p>3 rendez-vous à positionner avant l’accouchement & 3 rendez-vous à positionner après l’accouchement </p>",
     prix: 387,
-    image_url: "app/assets/images/Pack_un_peu_de_tout.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793644/Pack_un_peu_de_tout_vhvds2.jpg"
   },
   {
     titre: 'Pack “Baby loading” - 6 rdv',
@@ -44,13 +52,13 @@ prestations = [
     <p><strong>1 soin offert</strong></p>
     <p><em>*Si vous souhaitez adapter ce pack en ajoutant des rendez-vous à la fin de votre accompagnement, nous pourrons adapter le tarif.</em></p>",
     prix: 408,
-    image_url: "app/assets/images/Et_vous.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793640/Et_vous_gotakf.jpg"
   },
   {
     titre: 'Pack "Mois d\'or & +"',
     description: '<p>8 rendez-vous à positionner à la suite de votre accouchement (vous choisissez la récurrence), afin de vous accompagner lors de votre retour à la maison, votre adaptation à cette nouvelle vie et instaurer avec vous un climat de bien-être pour essayer de vous faire vivre un “mois d’or”.</p>',
     prix: 544,
-    image_url: "app/assets/images/Pack_mois_dor.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793643/Pack_mois_dor_sy3kfe.jpg"
   }
 ]
 
@@ -92,7 +100,7 @@ Si ton bébé est avec nous, pas de souci on peut adapter le soin : allaitement,
 N’hésite pas à m’en parler en amont pour qu’on rende ce moment adapté à tes besoins.
 Ce soin est aussi adapté pour toute personne traversant une étape, un passage difficile et qui souhaiterait bénéficier d’un moment de douceur.</p>",
     prix: "<p>1h : 70€</p>",
-    image_url: "app/assets/images/massage.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793642/massage_eyi1zu.jpg"
   },
   {
     titre: '🌺 Soin de Bien-être  –  Rebozo',
@@ -109,7 +117,7 @@ Comment ?
 À l’aide de 6 à 7 rebozos, j’effectue d’abord différents bercements sur chaque zone du corps et je finis par un resserrage de ces zones  : tête, épaules, ventre, bassin, jambes, pieds…
 Chaque zone est invitée à se détendre, à se relâcher… puis à se rassembler.</p>",
     prix: "70 €",
-    image_url: "app/assets/images/Rebozo.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793644/Pack_un_peu_de_tout_vhvds2.jpg"
   }
 ]
 
@@ -143,7 +151,7 @@ Contenu :
 
 À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
     prix: 65,
-    image_url: "app/assets/images/Portage_1.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793645/Portage_1_f7hbv0.jpg"
   },
   {
     titre: "🌱 Atelier Accompagnement – Ajustement du Portage",
@@ -159,7 +167,7 @@ Contenu :
 
 À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
     prix: 65,
-    image_url: "app/assets/images/Portage_2.jpg"
+    image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793646/Portage_2_ywjpmy.jpg"
   }
 ]
 

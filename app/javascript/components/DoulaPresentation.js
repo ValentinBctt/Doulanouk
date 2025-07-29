@@ -41,7 +41,7 @@ const DoulaPresentation = () => {
     "div",
     { className: "consult" },
     React.createElement("img", {
-      src: "/assets/home.jpg",
+      src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793641/home_of9dsv.jpg",
       alt: "Consult",
       className: "img-home",
     })
@@ -75,7 +75,7 @@ const DoulaPresentation2 = () => {
     "div",
     { className: "consult" },
     React.createElement("img", {
-      src: "/assets/anouk_1.jpg",
+      src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793639/anouk_1_kg1qno.jpg",
       alt: "Consult",
       className: "img-home",
     })

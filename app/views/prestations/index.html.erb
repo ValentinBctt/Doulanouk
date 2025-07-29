@@ -163,7 +163,7 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
           <!-- Suppression des balises HTML pour la description complète -->
           <p><%= simple_format(strip_tags(accompagnement.description)) %></p>
           <div class="price mt-4">
-            <p class="text-xl font-semibold text-gray-800"><%= number_to_currency(accompagnement.prix, unit: "€") %></p>
+            <p class="text-xl font-semibold text-gray-800"><%= accompagnement.prix.to_i %> €</p>
           </div>
           <!-- Bouton RDV -->
           <div class="rdv-button">

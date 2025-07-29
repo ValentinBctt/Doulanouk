@@ -22,7 +22,7 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
        data-id="<%= prestation.id %>">
 
     <% if prestation.image.attached? %>
-      <%= image_tag prestation.image, class: 'img-presta w-full object-cover ' %>
+      <%= image_tag prestation.image, class: 'img-presta w-full object-cover', style: 'height: 20rem;' %>
     <% else %>
       <p class="text-gray-600 text-center">No image available</p>
     <% end %>
@@ -81,13 +81,12 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
 
 <h1>Mes soins</h1>
 <% @soins.each do |soin| %>
-  <!-- Ajout de l'ID unique à chaque carte soin -->
   <div class="card-presta w-4/5 rounded-lg shadow-lg bg-white overflow-hidden my-4 cursor-pointer relative"
        id="soin-<%= soin.id %>"
        data-type="soin"
        data-id="<%= soin.id %>">
-    <% if soin.image_url.present? %>
-      <%= image_tag soin.image_url, alt: soin.titre, class: 'img-presta w-full object-cover' %>
+    <% if soin.image.attached? %>
+      <%= image_tag soin.image, alt: soin.titre, class: 'img-presta w-full object-cover', style: 'height: 20rem;' %>
     <% else %>
       <p class="text-gray-600 text-center">No image available</p>
     <% end %>
@@ -128,6 +127,11 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
   </div>
 <% end %>
 
+<div class="rdv-button">
+  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+</div>
+
+
 <h1>Mes accompagnements</h1>
 
 <div class="accompagnements-list">
@@ -137,8 +141,8 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
          id="accompagnement-<%= accompagnement.id %>"
          data-type="accompagnement"
          data-id="<%= accompagnement.id %>">
-      <% if accompagnement.image_url.present? %>
-        <%= image_tag accompagnement.image_url, alt: accompagnement.titre, class: 'img-presta w-full object-cover' %>
+      <% if accompagnement.image.attached? %>
+        <%= image_tag accompagnement.image, alt: accompagnement.titre, class: 'img-presta w-full object-cover', style: 'height: 20rem;' %>
       <% else %>
         <p class="text-gray-600 text-center">No image available</p>
       <% end %>
@@ -178,6 +182,11 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
       </div>
     </div>
   <% end %>
+
+  <div class="rdv-button">
+  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+</div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {

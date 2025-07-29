@@ -18,7 +18,7 @@ const useIntersectionObserver = () => {
       },
       {
         threshold: 0.1, // Déclenche quand 10% de l'élément est visible
-        rootMargin: '0px 0px -50px 0px' // Déclenche un peu avant que l'élément soit complètement visible
+        rootMargin: "0px 0px -50px 0px", // Déclenche un peu avant que l'élément soit complètement visible
       }
     );
 
@@ -37,15 +37,16 @@ const useIntersectionObserver = () => {
 };
 
 const DoulaPresentation = () => {
-  return React.createElement("div", { className: "consult" },
+  return React.createElement(
+    "div",
+    { className: "consult" },
     React.createElement("img", {
-      src: "/assets/Anouk.png",
+      src: "/assets/home.jpg",
       alt: "Consult",
-      className: "img-home"
+      className: "img-home",
     })
   );
 };
-
 
 const DoulaInfo = () => {
   const [ref, isVisible] = useIntersectionObserver();
@@ -53,8 +54,8 @@ const DoulaInfo = () => {
   return React.createElement(
     "div",
     {
-      className: `card-doula ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `card-doula ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
     React.createElement("h1", null, "Une Doula, c'est quoi ?"),
     React.createElement(
@@ -69,6 +70,18 @@ Sans intervenir médicalement, nous vous aidons à vivre votre expérience de la
   );
 };
 
+const DoulaPresentation2 = () => {
+  return React.createElement(
+    "div",
+    { className: "consult" },
+    React.createElement("img", {
+      src: "/assets/anouk_1.jpg",
+      alt: "Consult",
+      className: "img-home",
+    })
+  );
+};
+
 
 const QuiSuisJe = () => {
   const [ref, isVisible] = useIntersectionObserver();
@@ -76,14 +89,10 @@ const QuiSuisJe = () => {
   return React.createElement(
     "div",
     {
-      className: `card-doula ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `card-doula ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
-    React.createElement(
-      "h1",
-      null,
-      "Qui suis-je ?"
-    ),
+    React.createElement("h1", null, "Qui suis-je ?"),
     React.createElement(
       "p",
       null,
@@ -112,13 +121,33 @@ const CeQueJeFais = () => {
     "ul",
     { style: { listStyleType: "disc", paddingLeft: "20px" } },
     React.createElement("li", null, "Je vous écoute dans la neutralité."),
-    React.createElement("li", null, "J'accueille votre histoire, vos ressentis, vos questions, vos doutes, vos envies."),
-    React.createElement("li", null, "Je vous aide à identifier vos besoins et à les mettre en œuvre."),
+    React.createElement(
+      "li",
+      null,
+      "J'accueille votre histoire, vos ressentis, vos questions, vos doutes, vos envies."
+    ),
+    React.createElement(
+      "li",
+      null,
+      "Je vous aide à identifier vos besoins et à les mettre en œuvre."
+    ),
     React.createElement("li", null, "Je vous informe."),
     React.createElement("li", null, "Je vous propose des ressources."),
-    React.createElement("li", null, "Je vous soutiens et vous donne confiance en vous."),
-    React.createElement("li", null, "Je vous indique lorsqu'il y a des sujets hors de mon champ de compétences."),
-    React.createElement("li", null, "Je peux vous accompagner dans certaines démarches et à certains rendez-vous."),
+    React.createElement(
+      "li",
+      null,
+      "Je vous soutiens et vous donne confiance en vous."
+    ),
+    React.createElement(
+      "li",
+      null,
+      "Je vous indique lorsqu'il y a des sujets hors de mon champ de compétences."
+    ),
+    React.createElement(
+      "li",
+      null,
+      "Je peux vous accompagner dans certaines démarches et à certains rendez-vous."
+    ),
     React.createElement(
       "li",
       null,
@@ -138,15 +167,15 @@ const CeQueJeFais = () => {
     { className: "card-animate", onClick: toggleVisibility },
     "Concrètement, qu'est-ce que je fais ? ",
     React.createElement("i", {
-      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down"
+      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
     })
   );
 
   return React.createElement(
     "div",
     {
-      className: `presentation ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
     h1Element,
     pElement
@@ -172,15 +201,15 @@ const EtVous = () => {
     { className: "card-animate", onClick: toggleVisibility },
     "Et vous ?",
     React.createElement("i", {
-      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down"
+      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
     })
   );
 
   return React.createElement(
     "div",
     {
-      className: `presentation ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
     h1Element,
     pElement
@@ -223,15 +252,15 @@ const MonChamp = () => {
     { className: "card-animate", onClick: toggleVisibility },
     "Mon champ d'accompagnement",
     React.createElement("i", {
-      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down"
+      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
     })
   );
 
   return React.createElement(
     "div",
     {
-      className: `presentation ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
     h1Element,
     pElement
@@ -264,15 +293,15 @@ const MaLocalisation = () => {
     { className: "card-animate", onClick: toggleVisibility },
     "Ma localisation",
     React.createElement("i", {
-      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down"
+      className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
     })
   );
 
   return React.createElement(
     "div",
     {
-      className: `presentation ${isVisible ? 'fade-in-up' : 'fade-out'}`,
-      ref: ref
+      className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
+      ref: ref,
     },
     h1Element,
     pElement
@@ -280,9 +309,12 @@ const MaLocalisation = () => {
 };
 
 const DoulaPage = () => {
-  return React.createElement("div", null,
+  return React.createElement(
+    "div",
+    null,
     React.createElement(DoulaPresentation),
     React.createElement(DoulaInfo),
+    React.createElement(DoulaPresentation2),
     React.createElement(QuiSuisJe),
     React.createElement(CeQueJeFais),
     React.createElement(EtVous),

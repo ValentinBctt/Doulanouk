@@ -3,7 +3,7 @@
   --beige-claire: #eabfa2;
   --bleu-foncé: #2f4858;
   --vert: #00745e;
- 
+
   --bleu2:#4b5576;
   --font-size: 16px;
 }
@@ -24,7 +24,7 @@
 
 .card-presta img {
   width: 100%;
-  height: 20%;
+  height: 20rem!important;
   object-fit: cover;
 }
 .presta-title {

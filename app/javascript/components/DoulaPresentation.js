@@ -82,6 +82,7 @@ const DoulaPresentation2 = () => {
   );
 };
 
+
 const QuiSuisJe = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
@@ -176,7 +177,7 @@ const CeQueJeFais = () => {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
       onClick: toggleVisibility,
-      style: { cursor: "pointer" },
+      style: { cursor: "pointer" }
     },
     h1Element,
     pElement
@@ -212,7 +213,7 @@ const EtVous = () => {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
       onClick: toggleVisibility,
-      style: { cursor: "pointer" },
+      style: { cursor: "pointer" }
     },
     h1Element,
     pElement
@@ -265,7 +266,7 @@ const MonChamp = () => {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
       onClick: toggleVisibility,
-      style: { cursor: "pointer" },
+      style: { cursor: "pointer" }
     },
     h1Element,
     pElement
@@ -308,7 +309,7 @@ const MaLocalisation = () => {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
       onClick: toggleVisibility,
-      style: { cursor: "pointer" },
+      style: { cursor: "pointer" }
     },
     h1Element,
     pElement

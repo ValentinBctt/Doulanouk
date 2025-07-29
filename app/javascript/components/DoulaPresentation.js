@@ -82,7 +82,6 @@ const DoulaPresentation2 = () => {
   );
 };
 
-
 const QuiSuisJe = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
@@ -114,7 +113,7 @@ const CeQueJeFais = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const toggleVisibility = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded((prev) => !prev);
   };
 
   const ulElement = React.createElement(
@@ -164,7 +163,7 @@ const CeQueJeFais = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { className: "card-animate", onClick: toggleVisibility },
+    { className: "card-animate" },
     "Concrètement, qu'est-ce que je fais ? ",
     React.createElement("i", {
       className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
@@ -176,6 +175,8 @@ const CeQueJeFais = () => {
     {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
+      onClick: toggleVisibility,
+      style: { cursor: "pointer" },
     },
     h1Element,
     pElement
@@ -187,7 +188,7 @@ const EtVous = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const toggleVisibility = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded((prev) => !prev);
   };
 
   const pElement = React.createElement(
@@ -198,7 +199,7 @@ const EtVous = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { className: "card-animate", onClick: toggleVisibility },
+    { className: "card-animate" },
     "Et vous ?",
     React.createElement("i", {
       className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
@@ -210,6 +211,8 @@ const EtVous = () => {
     {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
+      onClick: toggleVisibility,
+      style: { cursor: "pointer" },
     },
     h1Element,
     pElement
@@ -221,7 +224,7 @@ const MonChamp = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const toggleVisibility = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded((prev) => !prev);
   };
 
   const ulElement = React.createElement(
@@ -249,7 +252,7 @@ const MonChamp = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { className: "card-animate", onClick: toggleVisibility },
+    { className: "card-animate" },
     "Mon champ d'accompagnement",
     React.createElement("i", {
       className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
@@ -261,6 +264,8 @@ const MonChamp = () => {
     {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
+      onClick: toggleVisibility,
+      style: { cursor: "pointer" },
     },
     h1Element,
     pElement
@@ -272,7 +277,7 @@ const MaLocalisation = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const toggleVisibility = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded((prev) => !prev);
   };
 
   const pElement = React.createElement(
@@ -290,7 +295,7 @@ const MaLocalisation = () => {
 
   const h1Element = React.createElement(
     "h2",
-    { className: "card-animate", onClick: toggleVisibility },
+    { className: "card-animate" },
     "Ma localisation",
     React.createElement("i", {
       className: isExpanded ? "" : "fleche fa-solid fa-chevron-down",
@@ -302,6 +307,8 @@ const MaLocalisation = () => {
     {
       className: `presentation ${isVisible ? "fade-in-up" : "fade-out"}`,
       ref: ref,
+      onClick: toggleVisibility,
+      style: { cursor: "pointer" },
     },
     h1Element,
     pElement

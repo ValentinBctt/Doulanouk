@@ -1,33 +1,7 @@
-require 'open-uri'
-
 # Suppression des données existantes
 Prestation.destroy_all
 Soin.destroy_all
 Accompagnement.destroy_all
-
-# Helper pour attacher une image locale ou distante
-def attach_image(record, image_path_string)
-  if image_path_string.start_with?("http")
-    file = URI.open(image_path_string)
-    record.image.attach(
-      io: file,
-      filename: File.basename(URI.parse(image_path_string).path),
-      content_type: 'image/jpeg'
-    )
-  else
-    image_path = Rails.root.join(image_path_string)
-    if File.exist?(image_path)
-      record.image.attach(
-        io: File.open(image_path),
-        filename: File.basename(image_path),
-        content_type: 'image/jpeg'
-      )
-    else
-      puts "⚠️ Image introuvable : #{image_path}"
-    end
-  end
-  sleep(0.2)
-end
 
 # === Prestations ===
 
@@ -46,11 +20,7 @@ prestations = [
   },
   {
     titre: 'Pack “Baby loading” - 6 rdv',
-    description: "<p>6 rendez-vous à positionner comme vous le souhaitez entre le début de votre projet bébé et votre accouchement.</p>
-    <p>Ces rendez-vous ont pour objectif de vous accompagner dans votre désir d’enfant : où en êtes-vous, si vous rencontrez des obstacles, si vous avez besoin de soutien dans votre parcours PMA, ou encore un espace d’échange pour vous et votre conjoint.e.</p>
-    <p>Pendant la période de la grossesse, ces rendez-vous peuvent vous servir à : parler de vos ressentis actuels, vos besoins pendant votre grossesse, votre vision de l’accouchement, vos doutes, parler du post-partum, vous accompagner logistiquement sur la préparation du post-partum, vous accompagner sur des démarches administratives, créer un espace d’échanges pour vous et votre conjoint.e, etc.</p>
-    <p><strong>1 soin offert</strong></p>
-    <p><em>*Si vous souhaitez adapter ce pack en ajoutant des rendez-vous à la fin de votre accompagnement, nous pourrons adapter le tarif.</em></p>",
+    description: "<p>6 rendez-vous à positionner comme vous le souhaitez entre le début de votre projet bébé et votre accouchement.</p>\n<p>Ces rendez-vous ont pour objectif de vous accompagner dans votre désir d’enfant : où en êtes-vous, si vous rencontrez des obstacles, si vous avez besoin de soutien dans votre parcours PMA, ou encore un espace d’échange pour vous et votre conjoint.e.</p>\n<p>Pendant la période de la grossesse, ces rendez-vous peuvent vous servir à : parler de vos ressentis actuels, vos besoins pendant votre grossesse, votre vision de l’accouchement, vos doutes, parler du post-partum, vous accompagner logistiquement sur la préparation du post-partum, vous accompagner sur des démarches administratives, créer un espace d’échanges pour vous et votre conjoint.e, etc.</p>\n<p><strong>1 soin offert</strong></p>\n<p><em>*Si vous souhaitez adapter ce pack en ajoutant des rendez-vous à la fin de votre accompagnement, nous pourrons adapter le tarif.</em></p>",
     prix: 408,
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793640/Et_vous_gotakf.jpg"
   },
@@ -63,13 +33,7 @@ prestations = [
 ]
 
 prestations.each do |data|
-  prestation = Prestation.create!(
-    titre: data[:titre],
-    description: data[:description],
-    prix: data[:prix]
-  )
-  attach_image(prestation, data[:image_url])
-  sleep(0.2)
+  Prestation.create!(data)
 end
 
 puts "✅ Prestations créées avec succès"
@@ -79,56 +43,20 @@ puts "✅ Prestations créées avec succès"
 soins = [
   {
     titre: '💆Massage post-natal ',
-    description: "<p>Pour qui, pour quoi ?
-Chaque post-partum est différent, il peut être doux ou bien plus abrupt. C’est une période chargée en émotions et adaptations.
-Tu vis certainement un chamboulement, un changement parce que le post-partum c’est un renouveau, une découverte.
-Félicite ton corps et ton esprit pour ce que tu viens de vivre et ce que tu es en train d’accomplir.
-Pour accompagner ce moment, fais-toi offrir ou offre-toi (tu le mérites !) un moment d’apaisement.
-Ce soin vient t’apporter une bulle, un instant suspendu de bien-être et relaxation. Ce massage peut te permettre par exemple de :
-- Soulager les tensions musculaires
-- Améliorer le sommeil
-- Aider à rééquilibrer les hormones
-
-Comment ?
-Le soin comprend :
-
-- Massage et détente du dos
-- Réflexologie palmaire et massage des bras
-- Bercements rebozo 1 zone
-
-Si ton bébé est avec nous, pas de souci on peut adapter le soin : allaitement, bébé à proximité etc.
-N’hésite pas à m’en parler en amont pour qu’on rende ce moment adapté à tes besoins.
-Ce soin est aussi adapté pour toute personne traversant une étape, un passage difficile et qui souhaiterait bénéficier d’un moment de douceur.</p>",
+    description: "<p>Pour qui, pour quoi ?\nChaque post-partum est différent, il peut être doux ou bien plus abrupt. C’est une période chargée en émotions et adaptations.\nTu vis certainement un chamboulement, un changement parce que le post-partum c’est un renouveau, une découverte.\nFélicite ton corps et ton esprit pour ce que tu viens de vivre et ce que tu es en train d’accomplir.\nPour accompagner ce moment, fais-toi offrir ou offre-toi (tu le mérites !) un moment d’apaisement.\nCe soin vient t’apporter une bulle, un instant suspendu de bien-être et relaxation. Ce massage peut te permettre par exemple de :\n- Soulager les tensions musculaires\n- Améliorer le sommeil\n- Aider à rééquilibrer les hormones\n\nComment ?\nLe soin comprend :\n\n- Massage et détente du dos\n- Réflexologie palmaire et massage des bras\n- Bercements rebozo 1 zone\n\nSi ton bébé est avec nous, pas de souci on peut adapter le soin : allaitement, bébé à proximité etc.\nN’hésite pas à m’en parler en amont pour qu’on rende ce moment adapté à tes besoins.\nCe soin est aussi adapté pour toute personne traversant une étape, un passage difficile et qui souhaiterait bénéficier d’un moment de douceur.</p>",
     prix: "<p>1h : 70€</p>",
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793642/massage_eyi1zu.jpg"
   },
   {
     titre: '🌺 Soin de Bien-être  –  Rebozo',
-    description: "<p>Pour qui, pour quoi ?
-Ce soin d’environ 1h est une invitation à revenir à soi, à ralentir, à se déposer.
-Le rebozo est un tissu traditionnel mexicain, tissé à la main, utilisé depuis des générations pour soutenir, envelopper et célébrer les femmes à différentes étapes de leur vie.
-Il est particulièrement apprécié et adapté :
-- aux jeunes mamans, pour marquer une pause dans l’intensité du post-partum.
-Mais aussi :
-– aux femmes en transition, qui traversent un changement, un deuil, une transformation intérieure
-– à toute femme qui ressent le besoin d’un soin profondément enveloppant et symbolique
-
-Comment ?
-À l’aide de 6 à 7 rebozos, j’effectue d’abord différents bercements sur chaque zone du corps et je finis par un resserrage de ces zones  : tête, épaules, ventre, bassin, jambes, pieds…
-Chaque zone est invitée à se détendre, à se relâcher… puis à se rassembler.</p>",
+    description: "<p>Pour qui, pour quoi ?\nCe soin d’environ 1h est une invitation à revenir à soi, à ralentir, à se déposer.\nLe rebozo est un tissu traditionnel mexicain, tissé à la main, utilisé depuis des générations pour soutenir, envelopper et célébrer les femmes à différentes étapes de leur vie.\nIl est particulièrement apprécié et adapté :\n- aux jeunes mamans, pour marquer une pause dans l’intensité du post-partum.\nMais aussi :\n– aux femmes en transition, qui traversent un changement, un deuil, une transformation intérieure\n– à toute femme qui ressent le besoin d’un soin profondément enveloppant et symbolique\n\nComment ?\nÀ l’aide de 6 à 7 rebozos, j’effectue d’abord différents bercements sur chaque zone du corps et je finis par un resserrage de ces zones  : tête, épaules, ventre, bassin, jambes, pieds…\nChaque zone est invitée à se détendre, à se relâcher… puis à se rassembler.</p>",
     prix: "70 €",
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793644/Pack_un_peu_de_tout_vhvds2.jpg"
   }
 ]
 
 soins.each do |data|
-  soin = Soin.create!(
-    titre: data[:titre],
-    description: data[:description],
-    prix: data[:prix]
-  )
-  attach_image(soin, data[:image_url])
-  sleep(0.2)
+  Soin.create!(data)
 end
 
 puts "✅ Soins créés avec succès"
@@ -138,47 +66,20 @@ puts "✅ Soins créés avec succès"
 accompagnements = [
   {
     titre: '✨ Atelier Découverte – Portage Physiologique',
-    description: "<p>Pour qui ? Futures mamans, jeunes parents, en solo, en duo etc.
-Quand ? Dès la grossesse ou après la naissance.
-Durée : 1h30 à 2h
-
-Contenu :
-- Présentation des différents moyens de portage (jersey, tissé, meï-taï, sling)
-- Démonstration des règles de sécurité et de la physiologie du portage
-- Avantages et inconvénients
-- Essai pratique sur poupon lesté ou avec votre bébé
-- Conseils personnalisés selon vos besoins et envies
-
-À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
+    description: "<p>Pour qui ? Futures mamans, jeunes parents, en solo, en duo etc.\nQuand ? Dès la grossesse ou après la naissance.\nDurée : 1h30 à 2h\n\nContenu :\n- Présentation des différents moyens de portage (jersey, tissé, meï-taï, sling)\n- Démonstration des règles de sécurité et de la physiologie du portage\n- Avantages et inconvénients\n- Essai pratique sur poupon lesté ou avec votre bébé\n- Conseils personnalisés selon vos besoins et envies\n\nÀ l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
     prix: 65,
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793645/Portage_1_f7hbv0.jpg"
   },
   {
     titre: "🌱 Atelier Accompagnement – Ajustement du Portage",
-    description: "<p>Pour qui ? Parents ayant déjà un moyen de portage et rencontrant des difficultés (inconfort, mauvaise position, bébé qui grandit, etc.).
-Quand ? Après la naissance, à tout moment selon vos besoins.
-Durée : 1h à 1h30
-
-Contenu :
-- Analyse de votre pratique actuelle
-- Ajustement du portage en fonction de votre morphologie et de celle de votre bébé
-- Apprentissage de nouveaux nouages, positions si besoin (ventrale, dorsale, hanche)
-- Présentation d’autres types de portage si besoin
-
-À l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
+    description: "<p>Pour qui ? Parents ayant déjà un moyen de portage et rencontrant des difficultés (inconfort, mauvaise position, bébé qui grandit, etc.).\nQuand ? Après la naissance, à tout moment selon vos besoins.\nDurée : 1h à 1h30\n\nContenu :\n- Analyse de votre pratique actuelle\n- Ajustement du portage en fonction de votre morphologie et de celle de votre bébé\n- Apprentissage de nouveaux nouages, positions si besoin (ventrale, dorsale, hanche)\n- Présentation d’autres types de portage si besoin\n\nÀ l’issue de la séance, je vous envoie un mémo récapitulatif des points abordés, incluant les techniques de nouage pour les différentes écharpes.</p>",
     prix: 65,
     image_url: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793646/Portage_2_ywjpmy.jpg"
   }
 ]
 
 accompagnements.each do |data|
-  accompagnement = Accompagnement.create!(
-    titre: data[:titre],
-    description: data[:description],
-    prix: data[:prix]
-  )
-  attach_image(accompagnement, data[:image_url])
-  sleep(0.2)
+  Accompagnement.create!(data)
 end
 
 puts "✅ Accompagnements créés avec succès"

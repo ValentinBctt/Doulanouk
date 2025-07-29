@@ -27,7 +27,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Assets - compile assets before deploy, do not compile on the fly
-  config.assets.compile = false
+  config.assets.compile = true
   config.assets.precompile += %w( application.css application.js )
 
   # Active Storage - use Cloudinary (ensure env vars are configured)

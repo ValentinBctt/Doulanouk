@@ -1,7 +1,18 @@
 <header class="bg-white">
   <nav class="mx-auto flex max-w-7xl items-center justify-center p-2 lg:px-8 shadow-sm" style="min-height: 40px;" aria-label="Global">
     <div class="flex items-center">
-      <%= image_tag 'AnoukDoula1.png', alt: 'logo', style: 'margin: 0.2rem 0 0.2rem 0; width: 4rem; border-radius: 5px;' %>
+      <%= image_tag 'AnoukDoula1.png',
+        alt: 'logo',
+        class: 'navbar-logo',
+        style: 'margin: 0.2rem 0 0.2rem 0; width: 4rem; border-radius: 5px;' %>
+
+      <style>
+        @media (min-width: 1024px) {
+          .navbar-logo {
+            width: 7rem !important;
+          }
+        }
+      </style>
     </div>
 
     <!-- Bouton menu hamburger visible sur toutes les tailles d'écran -->

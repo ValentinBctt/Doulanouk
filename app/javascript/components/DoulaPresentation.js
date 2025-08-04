@@ -37,74 +37,83 @@ const useIntersectionObserver = () => {
 };
 
 const DoulaPresentation = () => {
-  return React.createElement(
-    "div",
-    { className: "consult" },
-    React.createElement("img", {
-      src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793641/home_of9dsv.jpg",
-      alt: "Consult",
-      className: "img-home",
-    })
-  );
-};
-
-const DoulaInfo = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
   return React.createElement(
     "div",
     {
-      className: `card-doula ${isVisible ? "fade-in-up" : "fade-out"}`,
+      className: "doula-presentation-wrapper1",
       ref: ref,
     },
-    React.createElement("h1", null, "Une Doula, c'est quoi ?"),
     React.createElement(
-      "p",
-      null,
-      `Le mot Doula vient du grec ancien "au service de" ou "servante".
+      "div",
+      { className: "consult1" },
+      React.createElement("img", {
+        src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793641/home_of9dsv.jpg",
+        alt: "Consult",
+        className: "img-home",
+      })
+    ),
+    React.createElement(
+      "div",
+      { className: `card-doula1 ${isVisible ? "fade-in-up" : "fade-out"}` },
+      React.createElement("h1", null, "Une Doula, c'est quoi ?"),
+      React.createElement(
+        "p",
+
+        { style: { whiteSpace: "pre-line" } },
+        `Le mot Doula vient du grec ancien "au service de" ou "servante".
 Des siècles auparavant, le rôle de la Doula était déjà d'être une femme au service d'autres femmes durant l'accouchement et la période post-natale. À l'époque, ce sont des figures féminines de la communauté qui remplissaient ce rôle.
+
 Aujourd'hui, une Doula est une professionnelle formée dont le but reste d'être au service de la femme, mais également du co-parent pendant l'ensemble des périodes qui entourent la natalité (pré-natal, accouchement, post-partum).
 Notre rôle est de fournir un soutien émotionnel, physique et informatif, en créant un environnement de confiance et de bien-être.
+
 Sans intervenir médicalement, nous vous aidons à vivre votre expérience de la naissance et de la parentalité de manière sereine et épanouie, en respectant vos choix et en vous soutenant dans votre parcours.`
+      )
     )
   );
 };
 
 const DoulaPresentation2 = () => {
-  return React.createElement(
-    "div",
-    { className: "consult" },
-    React.createElement("img", {
-      src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793639/anouk_1_kg1qno.jpg",
-      alt: "Consult",
-      className: "img-home",
-    })
-  );
-};
-
-
-const QuiSuisJe = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
   return React.createElement(
     "div",
     {
-      className: `card-doula ${isVisible ? "fade-in-up" : "fade-out"}`,
+      className: "doula-presentation-wrapper2",
       ref: ref,
     },
-    React.createElement("h1", null, "Qui suis-je ?"),
+
     React.createElement(
-      "p",
-      null,
-      "Je suis Anouk, accompagnante périnatale ou bien Doula. " +
-        "Je viens initialement d'autres horizons puisque j'ai d'abord exercé dans les Ressources Humaines. " +
-        "J'ai souhaité évoluer vers un autre métier d'accompagnement, plus créatif et plus à l'écoute des souhaits de chacun. " +
-        "Ayant toujours eu un attrait pour la maternité, ses étapes, ses épreuves, ses joies, ses questionnements, le métier de Doula a été une évidence pour moi. " +
-        "Mon rôle est d'être une alliée dans cette expérience et un soutien dans vos choix. " +
-        "Je vous aide à être à l'écoute de vos questionnements et de vos besoins afin que vous puissiez au mieux les respecter. " +
-        "Pour enrichir cet accompagnement et répondre aux besoins variés de cette période unique, j'ai choisi de proposer également des soins complémentaires tels que : " +
-        "Massage postnatal, Soin Rebozo, Atelier de portage physiologique. " +
-        "Ces moments de douceur et de bienveillance viennent soutenir le corps, l'esprit et le lien que vous êtes en train de construire, dans une approche plus globale."
+      "div",
+      { className: `card-doula2 ${isVisible ? "fade-in-up" : "fade-out"}` },
+      React.createElement("h1", null, "Qui suis-je ?"),
+      React.createElement(
+        "p",
+         { style: { whiteSpace: "pre-line" } },
+    `Je suis Anouk, accompagnante périnatale ou bien Doula.
+Je viens initialement d'autres horizons puisque j'ai d'abord exercé dans les Ressources Humaines.
+J'ai souhaité évoluer vers un autre métier d'accompagnement, plus créatif et plus à l'écoute des souhaits de chacun.
+
+Ayant toujours eu un attrait pour la maternité, ses étapes, ses épreuves, ses joies, ses questionnements, le métier de Doula a été une évidence pour moi.
+Mon rôle est d'être une alliée dans cette expérience et un soutien dans vos choix.
+
+Je vous aide à être à l'écoute de vos questionnements et de vos besoins afin que vous puissiez au mieux les respecter.
+Pour enrichir cet accompagnement et répondre aux besoins variés de cette période unique, j'ai choisi de proposer également des soins complémentaires tels que :
+Massage postnatal, Soin Rebozo, Atelier de portage physiologique.
+
+Ces moments de douceur et de bienveillance viennent soutenir le corps, l'esprit et le lien que vous êtes en train de construire, dans une approche plus globale.`
+
+      )
+    ),
+    React.createElement(
+      "div",
+      { className: "consult2" },
+      React.createElement("img", {
+        src: "https://res.cloudinary.com/dnojcwwos/image/upload/v1753793639/anouk_1_kg1qno.jpg",
+        alt: "Consult",
+        className: "img-home",
+      })
     )
   );
 };
@@ -321,9 +330,9 @@ const DoulaPage = () => {
     "div",
     null,
     React.createElement(DoulaPresentation),
-    React.createElement(DoulaInfo),
+
     React.createElement(DoulaPresentation2),
-    React.createElement(QuiSuisJe),
+
     React.createElement(CeQueJeFais),
     React.createElement(EtVous),
     React.createElement(MonChamp),

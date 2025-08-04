@@ -29,10 +29,7 @@
 }
 
 @media (min-width: 1024px) {
-  .card-presta img {
-    height: 100% !important;
-    object-fit: cover;
-  }
+
 }
 .presta-title {
   margin-top: 10px;

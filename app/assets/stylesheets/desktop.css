@@ -47,14 +47,6 @@
     margin-right: auto;
   }
 
-  .card-presta {
-    width: 80% !important;
-    display: flex;
-    align-items: stretch; /* Étire l'image pour qu'elle prenne toute la hauteur */
-    gap: 1rem; /* Espacement entre l'image et le texte */
-    padding-bottom: 0px !important;
-    height: auto;
-  }
 
   .img-presta {
     width: 30% !important;
@@ -81,5 +73,6 @@
     display: flex;
     justify-content: space-around;
   }
+
 
 }

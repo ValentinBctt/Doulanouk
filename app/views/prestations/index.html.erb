@@ -110,9 +110,9 @@ Tous mes services sont modulables, nous pouvons en discuter ensemble et vous cho
           <p class="text-xl font-semibold text-gray-800"><%= strip_tags(soin.prix) %></p>
         </div>
         <!-- Bouton Voir plus -->
-        <div class="rdv-button">
-          <%= link_to "Voir plus", soin_path(soin), class: 'rdv-button' %>
-        </div>
+     <div class="rdv-button">
+  <%= link_to "Prendre RDV", new_rdv_path, class: 'rdv-button' %>
+</div>
       </div>
       <!-- Icônes de bascule -->
       <div class="arrow-icon absolute bottom-4 right-4">
